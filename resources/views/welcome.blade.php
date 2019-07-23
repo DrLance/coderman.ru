@@ -3,29 +3,54 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="yandex-verification" content="470b665093f69585"/>
   <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
-  <title>Laravel</title>
+  <title>Coderman.RU</title>
 
 </head>
 <body>
-<h1 class="text-4xl font-bold text-center text-blue-500">Hello world!</h1>
-<div class="flex content-center">
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
-    <img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains">
-    <div class="px-6 py-4">
-      <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
-      <p class="text-gray-700 text-base">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
-        eaque, exercitationem praesentium nihil.
-      </p>
+<header>
+  <nav class="flex items-center justify-between flex-wrap bg-blue-400 p-6">
+    <div class="container mx-auto">
+      <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+        <div class="text-sm lg:flex-grow">
+          <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+            Docs
+          </a>
+          <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+            Examples
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="px-6 py-4">
-      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#photography</span>
-      <span
-          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#travel</span>
-      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#winter</span>
-    </div>
+  </nav>
+</header>
+<div class="container mx-auto">
+  <div class="w-full">
+    <table class="table-auto w-full">
+      <thead>
+      <tr>
+        <th class="py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">
+          Ссылка
+        </th>
+        <th class="py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">
+          Описание
+        </th>
+        <th class="py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">
+          Дата добавления
+        </th>
+      </tr>
+      <tbody>
+      @foreach($parsedData as $data)
+        <tr class="hover:bg-blue-100">
+          <td><a href="{{$data->url}}">{{$data->title}}</a></td>
+          <td>{{Str::limit($data->description,40)}}</td>
+          <td>{{$data->date_published_at}}</td>
+        </tr>
+      @endforeach
+      </tbody>
+    </table>
   </div>
 </div>
 <script src="{{asset('js/app.js')}}"></script>
