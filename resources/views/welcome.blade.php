@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="title" content="Фриланс аггрегатор">
+  <meta name="description" content="фриланс аггрегатор парсит все извсетные биржи фриланса">
   <meta name="yandex-verification" content="470b665093f69585"/>
   <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
@@ -28,31 +30,41 @@
 </header>
 <div class="container mx-auto">
   <div class="w-full">
-    <table class="table-auto w-full">
-      <thead>
-      <tr>
-        <th class="py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">
+    <table class="table-auto w-full mt-16">
+      <thead class="border-t">
+      <tr class="text-bold">
+        <th class="py-4 px-6 bg-grey-lighter font-sans font-bold uppercase text-black border-r border-l border-b-2">
           Ссылка
         </th>
-        <th class="py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">
+        <th class="py-4 px-6 bg-grey-lighter font-sans font-bold uppercase text-black border-r border-b-2">
           Описание
         </th>
-        <th class="py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">
+        <th class="py-4 px-6 bg-grey-lighter font-sans font-bold uppercase text-black border-r border-b-2 ">
           Дата добавления
         </th>
       </tr>
       <tbody>
       @foreach($parsedData as $data)
-        <tr class="hover:bg-blue-100">
-          <td><a href="{{$data->url}}">{{$data->title}}</a></td>
-          <td>{{Str::limit($data->description,40)}}</td>
-          <td>{{$data->date_published_at}}</td>
+        <tr class="hover:shadow border-b">
+          <td class="border-r border-l flex flex-row items-center">
+            <img class="p-2" src="{{\Storage::url('type/' .$data->type->img_url,'type')}}">
+            <a target="_blank" href="{{$data->url}}">{{$data->title}}</a>
+          </td>
+          <td class="border-l pl-4">{{Str::limit($data->description,70)}}</td>
+          <td class="text-center border-l border-r">{{$data->date_published_at}}</td>
         </tr>
       @endforeach
       </tbody>
     </table>
   </div>
 </div>
+<footer class="bg-blue-400">
+  <div class="flex flex-row container mx-auto">
+    <div class="flex justify-center items-center w-full">
+      <p class="text-white text-xs">Copyright (c) 2019 coderman.ru</p>
+    </div>
+  </div>
+</footer>
 <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>
