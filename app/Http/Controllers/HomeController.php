@@ -12,8 +12,6 @@ class HomeController extends Controller
 {
     public function index() {
 
-      $cont = new FreelanceHuntController();
-      $cont->fillData();
       $parsedData = ParsedData::query();
       $parsedData->orderBy('date_published_at','DESC');
 
