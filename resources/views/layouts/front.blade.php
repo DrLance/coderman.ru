@@ -28,8 +28,11 @@
   <nav class="flex items-center justify-between flex-wrap bg-blue-400 p-6">
     <div class="container mx-auto">
       <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-        <div class="text-sm lg:flex-grow">
-
+        <a href="/" title="coderman.ru">
+        <img class="h-12" src="./img/logo_coderman.svg" alt="" />
+        </a>
+        <div class="text-sm lg:flex-grow flex justify-end">
+          <a class="text-white" href="{{backpack_url('login')}}">Вход</a>
         </div>
       </div>
     </div>

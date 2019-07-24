@@ -1,10 +1,10 @@
 <!-- This file is used to store sidebar items, starting with Backpack\Base 0.9.0 -->
 <li><a href="{{ backpack_url('dashboard') }}"><i class="fa fa-dashboard"></i>
     <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
+@role('admin')
 <li><a href="{{ backpack_url('elfinder') }}"><i class="fa fa-files-o"></i>
     <span>{{ trans('backpack::crud.file_manager') }}</span></a></li>
-<li><a href='{{ backpack_url('type') }}'><i class='fa fa-tag'></i> <span>Types</span></a></li>
-
+<li><a href='{{ backpack_url('type') }}'><i class='fa fa-sellsy'></i> <span>Types</span></a></li>
 <!-- Users, Roles Permissions -->
 <li class="treeview">
   <a href="#"><i class="fa fa-group"></i> <span>Users, Roles, Permissions</span> <i
@@ -15,3 +15,4 @@
     <li><a href="{{ backpack_url('permission') }}"><i class="fa fa-key"></i> <span>Permissions</span></a></li>
   </ul>
 </li>
+@endrole

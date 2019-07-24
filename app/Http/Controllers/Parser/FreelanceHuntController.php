@@ -24,11 +24,16 @@ class FreelanceHuntController extends Controller {
       $datePublished = $item->getAttribute('data-published');
 
       $titleUrl = new Crawler($item);
+
       $aTitle = $titleUrl->filter('a');
+
       $title = $aTitle->text();
+
       $url = $aTitle->attr('href');
+
       $description = $aTitle->attr('title');
-      $categoryName = $titleUrl->filter('div > small')->text();
+
+      $categoryName = $titleUrl->filter('div > small')->getNode(0) ? $titleUrl->filter('div > small')->text() : '';
 
       $parsedData = ParsedData::whereUrl($url)->get();
 
