@@ -24,7 +24,7 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW7B54D"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<header>
+<header class="shadow-md">
   <nav class="flex items-center justify-between flex-wrap bg-blue-400 p-6">
     <div class="container mx-auto">
       <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
