@@ -6,10 +6,14 @@ namespace App\Http\Controllers\Parser;
 
 use App\Http\Controllers\Controller;
 use App\Models\ParsedData;
+use App\Notifications\NewParsedItem;
 use Carbon\Carbon;
+use Illuminate\Notifications\Notifiable;
 use Symfony\Component\DomCrawler\Crawler;
 
 class FreelanceHuntController extends Controller {
+
+  use Notifiable;
 
   public function fillData() : void {
     $link = 'https://freelancehunt.ru/projects';
@@ -51,5 +55,6 @@ class FreelanceHuntController extends Controller {
 
     }
   }
+
 
 }

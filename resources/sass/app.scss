@@ -1,9 +1,11 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Merriweather');
-
 // Variables
 @import 'variables';
 
 @import 'tailwind';
 
 @import "front";
+
+
+body {
+  font-family: $font-family-sans-serif;
+}
