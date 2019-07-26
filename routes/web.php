@@ -13,3 +13,4 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::post('/', 'HomeController@index')->name('home');
+Route::get('/test','HomeController@test')->name('test');

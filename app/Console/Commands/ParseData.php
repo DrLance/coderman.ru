@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Controllers\Parser\FlController;
 use App\Http\Controllers\Parser\FreelanceHuntController;
 use App\Http\Controllers\Parser\WeblancerController;
 use Illuminate\Console\Command;
@@ -41,7 +42,9 @@ class ParseData extends Command
     {
         $freelanceHunt = new FreelanceHuntController();
         $weblancer = new WeblancerController();
+        $fl = new FlController();
         $freelanceHunt->fillData();
         $weblancer->fillData();
+        $fl->fillData();
     }
 }

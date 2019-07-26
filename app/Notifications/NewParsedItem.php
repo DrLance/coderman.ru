@@ -77,8 +77,10 @@ class NewParsedItem extends Notification {
 
 	public function toTelegram($notifiable) {
 
+		$data = $this->parsedData;
 		return TelegramMessage::create()
 		                      ->to('@coderman_fl') // Optional.
-		                      ->content("*HELLO!* \n One of your invoices has been paid!");
+		                      ->content('*' . $data->title * '*')
+		                      ->button('View', $data->url);
 	}
 }

@@ -23,7 +23,7 @@
           @foreach($parsedData as $data)
             <tr class="hover:shadow border">
               <td class="flex flex-row items-center">
-                <img class="p-2" src="{{\Storage::url('type/' .$data->type->img_url,'type')}}"
+                <img class="p-2 h-8 w-8" src="{{\Storage::url('type/' .$data->type->img_url,'type')}}"
                      alt="{{$data->title}}">
                 <a target="_blank" href="{{$data->url}}" class="text-sm"
                    title="{{$data->title}}">{{$data->title}}</a>
