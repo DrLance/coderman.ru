@@ -80,7 +80,7 @@ class NewParsedItem extends Notification {
 		$data = $this->parsedData;
 		return TelegramMessage::create()
 		                      ->to('@coderman_fl') // Optional.
-		                      ->content('*' . $data->title * '*')
+		                      ->content('*' . $data->title .'*')
 		                      ->button('View', $data->url);
 	}
 }
