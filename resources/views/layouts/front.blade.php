@@ -12,27 +12,43 @@
   <title>Coderman.RU</title>
 
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-NW7B54D');</script>
+  <script>(function ( w, d, s, l, i ) {
+      w[l] = w[l] || [];
+      w[l].push( {
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      } );
+      var f = d.getElementsByTagName( s )[0],
+        j = d.createElement( s ), dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore( j, f );
+    })( window, document, 'script', 'dataLayer', 'GTM-NW7B54D' );</script>
   <!-- End Google Tag Manager -->
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW7B54D"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW7B54D"
+          height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
 <!-- End Google Tag Manager (noscript) -->
 <header class="shadow-md">
   <nav class="flex items-center justify-between flex-wrap bg-blue-400 p-6">
     <div class="container mx-auto">
       <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <a href="/" title="coderman.ru">
-        <img class="h-12" src="./img/logo_coderman.svg" alt="" />
+          <img class="h-12" src="./img/logo_coderman.svg" alt=""/>
         </a>
         <div class="text-sm lg:flex-grow flex justify-end">
-          <a class="text-white" href="{{backpack_url('login')}}">Вход</a>
+          <a class="text-white font-bold text-lg mr-10" href="/about">О проекте</a>
+          @if(backpack_user())
+            <a class="text-white font-bold text-lg" href="{{backpack_url('dashboard')}}">Личный кабинет</a>
+          @else
+            <a class="text-white font-bold text-lg" href="{{backpack_url('login')}}">Вход /
+              Регистрация</a>          @endif
+
         </div>
       </div>
     </div>
