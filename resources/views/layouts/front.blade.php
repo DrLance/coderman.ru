@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="title" content="Фриланс аггрегатор">
-  <meta name="description" content="фриланс аггрегатор парсит все извсетные биржи фриланса">
+  <meta name="title" content="Фриланс агрегатор">
+  <meta name="description"
+        content="Агрегатор фриланс бирж, собирает данные со всех известных фриланс бирж в одном месте.">
   <meta name="yandex-verification" content="470b665093f69585"/>
-  <meta name="csrf-token">
+  <meta name="csrf-token" content="{{csrf_token()}}">
   <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
   <title>Coderman.RU</title>
@@ -56,9 +57,24 @@
 </header>
 @yield('content')
 <footer class="bg-blue-400">
-  <div class="flex flex-row container mx-auto">
-    <div class="flex justify-center items-center w-full">
-      <p class="text-white text-xs">Copyright (c) 2019 coderman.ru</p>
+  <div class="container mx-auto pt-10 pb-4">
+    <div class="flex flex-row pb-5">
+      <div class="w-1/3">
+
+      </div>
+      <div class="w-1/3">
+
+      </div>
+      <div class="w-1/3">
+        <a href="https://t.me/coderman_fl" class="text-white flex flex-row items-center font-bold">
+          <img class="pr-2 h-8 w-8" src="./img/telegram.svg">
+          @Coderman_fl</a>
+      </div>
+    </div>
+    <div class="flex flex-row container mx-auto ">
+      <div class="flex justify-center items-center w-full" >
+        <p class="text-white text-xs">Copyright (c) 2019 coderman.ru</p>
+      </div>
     </div>
   </div>
 </footer>

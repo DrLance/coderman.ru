@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Parser\FlController;
+use App\Http\Controllers\Parser\FreelanceRuController;
 use App\Models\ParsedData;
 use App\Models\Type;
 use Illuminate\Http\Request;
@@ -20,12 +21,11 @@ class HomeController extends Controller {
 		}
 
 
-
 		return view('welcome', ['parsedData' => $parsedData->paginate(50), 'types' => $types, 'filter_type' => $filterType]);
 	}
 
 	public function test(Request $request) {
-		$fl = new FlController();
+		$fl = new FreelanceRuController();
 
 		$fl->fillData();
 	}
