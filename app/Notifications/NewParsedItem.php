@@ -31,7 +31,7 @@ class NewParsedItem extends Notification {
 	 * @return array
 	 */
 	public function via($notifiable) {
-		return ['slack'];
+		return ['slack', TelegramChannel::class];
 	}
 
 	/**
