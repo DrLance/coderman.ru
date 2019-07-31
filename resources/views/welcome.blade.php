@@ -41,15 +41,19 @@
       <aside class="md:w-3/12 flex">
         <div class="w-full pl-4">
           <div class="shadow pl-4 px-5 py-2 rounded">
+            <p class="uppercase mb-5 text-center">фильтр</p>
             <form action="{{route('home')}}" method="post" class="flex flex-col">
               @csrf
-              <label for="filter_type" class="flex flex-col font-bold">Фильтр
-              <select class="mb-5 mt-5 py-1 border-b-2 mb-3 text-lg" name="filter_type">
+              <label for="filter_type" class="flex flex-col font-bold">Фриланс биржа
+              <select class="mb-5 mt-1 py-1 border-b-2 mb-3 text-lg" name="filter_type">
                 <option value="0">Все</option>
                 @foreach($types as $type)
                   <option {{$filter_type == $type->id ? 'selected' : ''}} value="{{$type->id}}">{{$type->name}}</option>
                 @endforeach
               </select>
+                <label class="pb-3">Ключевые слова
+                  <input name="keywords" class="border-b-2">
+                </label>
               </label>
                 <button class="bg-green-600 rounded py-2 shadow text-white" type="submit">Отфильтровать</button>
             </form>

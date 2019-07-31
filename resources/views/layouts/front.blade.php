@@ -6,6 +6,7 @@
   <meta name="title" content="Фриланс агрегатор">
   <meta name="description"
         content="Агрегатор фриланс бирж, собирает данные со всех известных фриланс бирж в одном месте.">
+  <meta name="keywords" content="работа, фриланс, биржи, агрегатор, статистика, freelance">
   <meta name="yandex-verification" content="470b665093f69585"/>
   <meta name="csrf-token" content="{{csrf_token()}}">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">

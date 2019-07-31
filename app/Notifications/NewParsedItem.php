@@ -31,7 +31,7 @@ class NewParsedItem extends Notification {
 	 * @return array
 	 */
 	public function via($notifiable) {
-		return ['slack', TelegramChannel::class];
+		return ['slack'];
 	}
 
 	/**
@@ -78,9 +78,17 @@ class NewParsedItem extends Notification {
 	public function toTelegram($notifiable) {
 
 		$data = $this->parsedData;
-		return TelegramMessage::create()
-		                      ->to('@coderman_fl') // Optional.
-		                      ->content('*' . $data->title .'*')
-		                      ->button('View', $data->url);
+		$message = new TelegramMessage();
+		try {
+			$message = TelegramMessage::create()
+			                      ->to('@coderman_fl') // Optional.
+			                      ->content('*' . $data->title . '*')
+			                      ->button('View', $data->url);
+
+		} catch (\Exception $e) {
+			dump($e);
+		}
+
+		return $message;
 	}
 }
