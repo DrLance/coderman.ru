@@ -9,6 +9,6 @@ class Type extends Model
 {
     use CrudTrait;
 
-    protected $fillable = ['name', 'img_url'];
+    protected $fillable = ['name', 'img_url', 'lang'];
 
 }

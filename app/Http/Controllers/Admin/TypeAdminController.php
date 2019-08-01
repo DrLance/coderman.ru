@@ -36,6 +36,11 @@ class TypeAdminController extends CrudController {
       'labele' => 'Name'
     ]);
 
+	  $this->crud->addColumn([
+		  'name' => 'lang',
+		  'labele' => 'Lang'
+	  ]);
+
 
     $this->crud->addField([
       'name' => 'name',
@@ -50,6 +55,13 @@ class TypeAdminController extends CrudController {
       'disk' => 'public',
       'prefix' => '/type/'
     ]);
+
+	  $this->crud->addField([
+		  'name' => 'lang',
+		  'type' => 'text',
+		  'label' => "Language"
+	  ]);
+
   }
 
   public function store(Request $request)
