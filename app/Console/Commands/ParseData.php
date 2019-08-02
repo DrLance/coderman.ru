@@ -6,6 +6,7 @@ use App\Http\Controllers\Parser\FlController;
 use App\Http\Controllers\Parser\FreelanceHuntController;
 use App\Http\Controllers\Parser\FreelanceRuController;
 use App\Http\Controllers\Parser\FreelansimController;
+use App\Http\Controllers\Parser\GuruController;
 use App\Http\Controllers\Parser\WeblancerController;
 use Illuminate\Console\Command;
 
@@ -47,6 +48,7 @@ class ParseData extends Command
         $fl = new FlController();
         $freelanceRu = new FreelanceRuController();
         $freelansim = new FreelansimController();
+        $guru = new GuruController();
         $freelanceHunt->fillData();
         $weblancer->fillData();
         $fl->fillData();
