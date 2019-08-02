@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Parser\FreelansimController;
+use App\Http\Controllers\Parser\GuruController;
 use App\Models\ParsedData;
 use App\Models\Type;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class HomeController extends Controller {
 	}
 
 	public function test(Request $request) {
-		$fl = new FreelansimController();
+		$fl = new GuruController();
 
 		$fl->fillData();
 	}

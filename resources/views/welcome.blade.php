@@ -26,7 +26,7 @@
                 <img class="p-2 h-8 w-8" src="{{\Storage::url('type/' .$data->type->img_url,'type')}}"
                      alt="{{$data->title}}">
                 <a target="_blank" href="{{$data->url}}" class="text-sm"
-                   title="{{$data->title}}">{{$data->title}}</a>
+                   title="{{$data->title}}" rel="nofollow">{{$data->title}}</a>
               </td>
               <td class="pl-4 text-sm border-l border-r">{{Str::limit($data->description,100)}}</td>
               <td class="text-center text-xs ">{{$data->date_published_at}}</td>
