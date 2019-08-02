@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbfca50c-ffa9-47ec-91a0-8c4d2a1659d6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Console/Commands/ParseData.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/ParseData.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -203,7 +202,7 @@
       <workItem from="1564474791466" duration="2899000" />
       <workItem from="1564574491690" duration="2744000" />
       <workItem from="1564671140871" duration="2136000" />
-      <workItem from="1564721442564" duration="1221000" />
+      <workItem from="1564721442564" duration="1275000" />
     </task>
     <task id="LOCAL-00001" summary="add new favicon">
       <created>1564474907430</created>

@@ -54,6 +54,7 @@ class ParseData extends Command
         $fl->fillData();
         $freelanceRu->fillData();
         $freelansim->fillData();
+        $guru->fillData();
 
         return true;
     }
