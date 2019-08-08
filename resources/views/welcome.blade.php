@@ -29,13 +29,13 @@
                    title="{{$data->title}}" rel="nofollow">{{$data->title}}</a>
               </td>
               <td class="pl-4 text-sm border-l border-r">{{Str::limit($data->description,100)}}</td>
-              <td class="text-center text-xs ">{{$data->date_published_at}}</td>
+              <td class="text-center text-xs ">{{$data->created_date}}</td>
             </tr>
           @endforeach
           </tbody>
         </table>
         <div class="mb-16">
-          {{$parsedData->appends(['filter_type' => $filter_type])->links()}}
+
         </div>
       </div>
       <aside class="md:w-3/12 flex">

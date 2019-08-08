@@ -12,7 +12,7 @@ class HomeController extends Controller {
 	public function index(Request $request) {
 
 		$parsedData = ParsedData::query();
-		$parsedData->orderBy('date_published_at', 'DESC');
+
 		$types = Type::all();
 
 		$filterType = $request->input('filter_type', '0');
@@ -25,9 +25,10 @@ class HomeController extends Controller {
 			$parsedData->where('title', 'like', '%' . $keywords . '%')
 			           ->orWhere('description', 'like', '%' . $keywords . '%');
 		}
+		$parsedData->orderBy('date_published_at', 'DESC')->limit(50);
 
 		return view('welcome',
-			['parsedData' => $parsedData->paginate(50), 'types' => $types, 'filter_type' => $filterType]);
+			['parsedData' => $parsedData->get(), 'types' => $types, 'filter_type' => $filterType]);
 	}
 
 	public function test(Request $request) {

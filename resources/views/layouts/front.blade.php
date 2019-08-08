@@ -47,7 +47,7 @@
     <div class="container mx-auto">
       <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <a href="/" title="coderman.ru">
-          <img class="h-12" src="./img/logo_coderman.svg" alt=""/>
+          <img class="h-12 rounded" src="./android-chrome-192x192.png" alt=""/>
         </a>
         <div class="text-sm lg:flex-grow flex justify-end">
           <a class="text-white font-bold text-lg mr-10" href="/about">О проекте</a>

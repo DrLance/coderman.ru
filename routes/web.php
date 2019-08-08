@@ -14,3 +14,6 @@
 Route::get('/', 'HomeController@index')->name('home');
 Route::post('/', 'HomeController@index')->name('home');
 Route::get('/test','HomeController@test')->name('test');
+Route::get('/about',function(){
+	return view('pages.about');
+});
