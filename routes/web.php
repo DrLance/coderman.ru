@@ -14,6 +14,7 @@
 Route::get('/', 'HomeController@index')->name('home');
 Route::post('/', 'HomeController@index')->name('home');
 Route::get('/test','HomeController@test')->name('test');
-Route::get('/about',function(){
-	return view('pages.about');
-});
+
+/** CATCH-ALL ROUTE for Backpack/PageManager - needs to be at the end of your routes.php file  **/
+Route::get('{page}/{subs?}', ['uses' => 'PageController@index'])
+     ->where(['page' => '^(((?=(?!admin))(?=(?!\/)).))*$', 'subs' => '.*']);
