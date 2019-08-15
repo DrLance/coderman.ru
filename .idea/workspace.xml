@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cbfca50c-ffa9-47ec-91a0-8c4d2a1659d6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Parser/FreelansimController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Parser/FreelansimController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Notifications/NewParsedItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/NewParsedItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -211,7 +206,7 @@
       <workItem from="1565235684416" duration="1804000" />
       <workItem from="1565871741393" duration="19000" />
       <workItem from="1565871775449" duration="127000" />
-      <workItem from="1565873457240" duration="828000" />
+      <workItem from="1565873457240" duration="1672000" />
     </task>
     <task id="LOCAL-00001" summary="add new favicon">
       <created>1564474907430</created>
