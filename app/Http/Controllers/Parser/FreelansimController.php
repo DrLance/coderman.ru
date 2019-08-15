@@ -15,7 +15,8 @@ class FreelansimController extends Controller {
 
   public function fillData() : void {
     $link = 'https://freelansim.ru';
-    $html = file_get_contents($link);
+    $postFix = '/tasks';
+    $html = file_get_contents($link.$postFix);
 
     $crawler = new Crawler(null, $link);
     $crawler->addHtmlContent($html);
@@ -30,8 +31,6 @@ class FreelansimController extends Controller {
 
       $htmlTask = file_get_contents( $url);
 	    $crawlerTask = new Crawler($htmlTask);
-
-
 
 	    $parsedData = ParsedData::whereUrl($url)->get();
 
