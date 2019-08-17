@@ -50,6 +50,7 @@
           <img class="h-12 rounded" src="./android-chrome-192x192.png" alt=""/>
         </a>
         <div class="text-sm lg:flex-grow flex justify-end">
+          <a class="text-white font-bold text-lg mr-10" href="{{route('monitoring')}}">Мониторинг проектов</a>
           <a class="text-white font-bold text-lg mr-10" href="/about">О проекте</a>
           @if(backpack_user())
             <a class="text-white font-bold text-lg" href="{{backpack_url('dashboard')}}">Личный кабинет</a>
@@ -79,7 +80,7 @@
       </div>
     </div>
     <div class="flex flex-row container mx-auto ">
-      <div class="flex justify-center items-center w-full" >
+      <div class="flex justify-center items-center w-full">
         <p class="text-white text-xs">Copyright (c) 2019 coderman.ru</p>
       </div>
     </div>
