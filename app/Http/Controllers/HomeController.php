@@ -33,7 +33,7 @@ class HomeController extends Controller {
 
 	public function test(Request $request) {
 
-		$fl = new FreelansimController();
+		$fl = new GuruController();
 
 		$fl->fillData();
 	}

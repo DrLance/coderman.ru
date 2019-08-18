@@ -15,6 +15,8 @@ class FreelanceHuntController extends Controller {
 
   use Notifiable;
 
+  private $type = 1;
+
   public function fillData() : void {
     $link = 'https://freelancehunt.ru/projects';
     $html = file_get_contents($link);
@@ -49,7 +51,7 @@ class FreelanceHuntController extends Controller {
         $nparsedData->description = $description;
         $nparsedData->date_published_at = Carbon::createFromTimestamp($datePublished);
         $nparsedData->category_name = $categoryName;
-        $nparsedData->type_id = 1;
+        $nparsedData->type_id = $this->type;
         $nparsedData->save();
       }
 

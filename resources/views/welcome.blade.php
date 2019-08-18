@@ -23,7 +23,7 @@
           @foreach($parsedData as $data)
             <tr class="hover:shadow border">
               <td class="flex flex-row items-center">
-                @if(isset($data->type->img_url))
+                @if(!empty($data->type->img_url))
                 <img class="p-2 h-8 w-8" src="{{\Storage::url('type/' .$data->type->img_url,'type')}}"
                      alt="{{$data->title}}">
                 @endif

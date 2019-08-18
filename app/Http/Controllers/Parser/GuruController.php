@@ -28,11 +28,19 @@ class GuruController extends Controller {
       $title = $linkTask->text();
       $url = $link . $linkTask->attr('href');
       $description = $domElement->filter('p.jobRecord__desc')->text();
-      $category = $domElement->filter('a.skillsList__skill')->text();
+
+      $category = $domElement->filter('a.skillsList__skill');
+
+      if($category->count() > 0) {
+      	$category = $category->first()->text();
+      } else {
+      	$category = 'Без категории';
+      }
+
 
 	    $parsedData = ParsedData::whereUrl($url)->get();
 
-	    if(!$parsedData->count()) {
+	    if($parsedData->count() === 10000) {
 		    $nparsedData = new ParsedData();
 
 		    $nparsedData->title = $title;
