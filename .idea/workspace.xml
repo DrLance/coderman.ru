@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbfca50c-ffa9-47ec-91a0-8c4d2a1659d6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -218,7 +218,8 @@
       <workItem from="1565944873738" duration="2945000" />
       <workItem from="1566112581234" duration="2916000" />
       <workItem from="1566136397822" duration="4118000" />
-      <workItem from="1566359706684" duration="51000" />
+      <workItem from="1566359706684" duration="129000" />
+      <workItem from="1566534730438" duration="29000" />
     </task>
     <task id="LOCAL-00001" summary="add new favicon">
       <created>1564474907430</created>
