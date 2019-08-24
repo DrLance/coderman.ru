@@ -47,7 +47,7 @@
         </a>
         <div class="text-sm lg:flex-grow flex justify-end">
           <a class="text-white font-bold text-lg mr-10" href="{{route('monitoring')}}">Мониторинг проектов</a>
-          <a class="text-white font-bold text-lg mr-10" href="/about">О проекте</a>
+          <a class="text-white font-bold text-lg mr-10" href="{{route('about')}}">О проекте</a>
         </div>
       </div>
     </div>

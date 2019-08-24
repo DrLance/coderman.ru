@@ -15,6 +15,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::post('/', 'HomeController@index')->name('home');
 Route::get('/test','HomeController@test')->name('test');
 Route::get('/monitoring', 'Pages\MonitoringController@index')->name('monitoring');
+Route::get('/about', 'HomeController@about')->name('about');
 Route::prefix('api')->group(function () {
 	Route::post('/getData', 'Pages\MonitoringController@getData')->name('getData');
 });
