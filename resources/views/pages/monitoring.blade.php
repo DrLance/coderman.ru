@@ -2,7 +2,7 @@
 @section('content')
   <div class="container mx-auto flex-col">
     <h1 class="py-10 text-center text-xl font-bold">
-      Актуальные данные собранные с популярных российский бирж фриланса
+      Данные обновляются с интервалом в 5 секунд.
     </h1>
     <div class="flex md:flex-row sm:flex-col">
       <div class="md:w-9/12 sm:overflow-hidden" id="table">

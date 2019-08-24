@@ -13,7 +13,7 @@ class MonitoringController extends Controller {
 	}
 
 	public function getData(Request $request) {
-		$parsedData = ParsedData::orderBy('created_at', 'DESC')->limit(50)->get();
+		$parsedData = ParsedData::with('type')->orderBy('created_at', 'DESC')->limit(50)->get();
 
 		return response()->json($parsedData);
 	}

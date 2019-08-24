@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ParsedData;
 use Carbon\Carbon;
 use Symfony\Component\DomCrawler\Crawler;
+use GuzzleHttp\Client;
 
 class GuruController extends Controller {
 
@@ -15,7 +16,14 @@ class GuruController extends Controller {
 
   public function fillData() : void {
     $link = 'https://www.guru.com';
-    $html = file_get_contents($link .'/d/jobs/');
+    $prefix = '/d/jobs/';
+
+	  $client = new Client();
+	  $res = $client->request('GET', $link . $prefix, [
+		  'headers' => ['User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36']
+	  ]);
+
+	  $html = $res->getBody()->getContents();
 
     $crawler = new Crawler(null, $link);
     $crawler->addHtmlContent($html);
@@ -37,10 +45,9 @@ class GuruController extends Controller {
       	$category = 'Без категории';
       }
 
-
 	    $parsedData = ParsedData::whereUrl($url)->get();
 
-	    if($parsedData->count() === 10000) {
+	    if(!$parsedData->count()) {
 		    $nparsedData = new ParsedData();
 
 		    $nparsedData->title = $title;

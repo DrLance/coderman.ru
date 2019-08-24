@@ -34,7 +34,7 @@ class NewParsedItem extends Notification {
 		if(config('app.is_local')) {
 			return ['slack'];
 		}
-		return ['slack', TelegramChannel::class];
+		return [TelegramChannel::class];
 	}
 
 	/**

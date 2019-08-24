@@ -19,6 +19,7 @@
 
   <title>Coderman.RU</title>
 
+  @if(!config('app.is_local'))
   <!-- Google Tag Manager -->
   <script>(function ( w, d, s, l, i ) {
       w[l] = w[l] || [];
@@ -34,14 +35,9 @@
       f.parentNode.insertBefore( j, f );
     })( window, document, 'script', 'dataLayer', 'GTM-NW7B54D' );</script>
   <!-- End Google Tag Manager -->
+    @endif
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript>
-  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW7B54D"
-          height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
-<!-- End Google Tag Manager (noscript) -->
 <header class="shadow-md">
   <nav class="flex items-center justify-between flex-wrap bg-blue-400 p-6">
     <div class="container mx-auto">
@@ -52,18 +48,14 @@
         <div class="text-sm lg:flex-grow flex justify-end">
           <a class="text-white font-bold text-lg mr-10" href="{{route('monitoring')}}">Мониторинг проектов</a>
           <a class="text-white font-bold text-lg mr-10" href="/about">О проекте</a>
-          @if(backpack_user())
-            <a class="text-white font-bold text-lg" href="{{backpack_url('dashboard')}}">Личный кабинет</a>
-          @else
-            <a class="text-white font-bold text-lg" href="{{backpack_url('login')}}">Вход /
-              Регистрация</a>          @endif
-
         </div>
       </div>
     </div>
   </nav>
 </header>
+<main class="mb-64">
 @yield('content')
+</main>
 <footer class="bg-blue-400">
   <div class="container mx-auto pt-10 pb-4">
     <div class="flex flex-row pb-5">
@@ -86,6 +78,8 @@
     </div>
   </div>
 </footer>
+<script src="{{asset('js/manifest.js')}}"></script>
+<script src="{{asset('js/vendor.js')}}"></script>
 <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>

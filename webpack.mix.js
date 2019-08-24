@@ -1,7 +1,5 @@
 const mix = require( 'laravel-mix' );
 
-mix.disableSuccessNotifications();
-
 const tailwindcss = require( 'tailwindcss' );
 /*
  |--------------------------------------------------------------------------
@@ -20,3 +18,11 @@ mix.react( 'resources/js/app.js', 'public/js' )
     processCssUrls: false,
     postCss: [tailwindcss( './tailwind.js' )],
   } );
+
+mix.disableSuccessNotifications();
+mix.browserSync({
+  proxy: "http://coderman.local",
+  host: "coderman.local",
+  port: 8888
+});
+mix.extract();

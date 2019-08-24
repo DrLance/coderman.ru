@@ -10,15 +10,18 @@ class TableContainer extends React.Component {
       tableHeaders: [
         {
           'name': 'Ссылка',
-          'type': 'url'
+          'type': 'url',
+          'classes': "flex flex-row items-center"
         },
         {
           'name': 'Описание',
-          'type': 'description'
+          'type': 'description',
+          'classes': "w-6/12 pl-4"
         },
         {
           'name': 'Дата',
-          'type': 'date_published_at'
+          'type': 'date_published_at',
+          'classes': " text-xs text-center"
         }
       ],
       data: [],
@@ -40,7 +43,6 @@ class TableContainer extends React.Component {
   }
 
   componentWillUnmount() {
-    // Clear the interval right before component unmount
     clearInterval(this.interval);
   }
 
@@ -66,13 +68,16 @@ class TableContainer extends React.Component {
           return (
             <TableRow key={ item.id + '_tr' }>
               { tableHeaders.map( ( itemH, indexH ) => {
-                const classNames = "text-center pl-4 text-sm border-l border-r";
-                let text = shorten( item[itemH.type], 50 );
-
+                const classNames = "text-sm border-l border-r " + itemH.classes;
+                let tmpText = item[itemH.type];
+                tmpText.trim();
+                let text = shorten( tmpText, 150 );
 
                 if ( itemH.type === 'url' ) {
                   return (
-                    <td className={ classNames } key={ indexH + '_td' }><a href={ item['url'] }>{ item['title'] }</a>
+                    <td className={ classNames } key={ indexH + '_td' }>
+                      <img className={"p-2 h-8 w-8"} src={"/storage/type/" + item['type']['img_url']} alt={''} />
+                      <a href={ item['url'] }>{ item['title'] }</a>
                     </td>
                   )
                 }
