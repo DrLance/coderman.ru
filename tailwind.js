@@ -5,5 +5,7 @@ module.exports = {
   variants: {
     tableLayout: ['responsive', 'hover', 'focus'],
   },
-  plugins: []
+  plugins: [
+    require('tailwindcss-animatecss')(['responsive'])
+  ]
 };

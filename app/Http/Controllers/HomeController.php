@@ -4,35 +4,31 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Parser\FreelansimController;
 use App\Http\Controllers\Parser\GuruController;
-use App\Models\ParsedData;
 use App\Models\Type;
+use Backpack\PageManager\app\Models\Page;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller {
-	public function index(Request $request) {
 
-		$parsedData = ParsedData::query();
+	public function index(Request $request) {
 
 		$types = Type::all();
 
-		$filterType = $request->input('filter_type', '0');
-		$keywords   = $request->input('keywords');
-		if ($filterType !== '0') {
-			$parsedData->whereTypeId($filterType);
-		}
+		return view('welcome',  ['types' => $types]);
+	}
 
-		if ($keywords) {
-			$parsedData->where('title', 'like', '%' . $keywords . '%')
-			           ->orWhere('description', 'like', '%' . $keywords . '%');
-		}
-		$parsedData->orderBy('date_published_at', 'DESC')->limit(50);
+	public function about(Request $request) {
+		$page = Page::findBySlug('about');
 
-		return view('welcome',
-			['parsedData' => $parsedData->get(), 'types' => $types, 'filter_type' => $filterType]);
+		if(!$page) abort(404);
+
+		return view('pages.about_us',['page' => $page->withFakes()]);
 	}
 
 	public function test(Request $request) {
+
 		$fl = new GuruController();
+
 
 		$fl->fillData();
 	}

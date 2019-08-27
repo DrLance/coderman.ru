@@ -11,6 +11,8 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class WeblancerController extends Controller {
 
+	private $type = 2;
+
   public function fillData() : void {
     $link = 'https://www.weblancer.net/jobs/';
     $html = file_get_contents($link);
@@ -44,7 +46,7 @@ class WeblancerController extends Controller {
         $nparsedData->description = $description;
         $nparsedData->date_published_at = Carbon::createFromTimestamp($datePublished);
         $nparsedData->category_name = $categoryName;
-        $nparsedData->type_id = 2;
+        $nparsedData->type_id = $this->type;
         $nparsedData->save();
       }
 

@@ -31,7 +31,10 @@ class NewParsedItem extends Notification {
 	 * @return array
 	 */
 	public function via($notifiable) {
-		return ['slack', TelegramChannel::class];
+		if(config('app.is_local')) {
+			return ['slack'];
+		}
+		return [TelegramChannel::class];
 	}
 
 	/**
