@@ -73,7 +73,7 @@ class TableContainer extends React.Component {
                 tmpText.trim();
                 let text = shorten( tmpText, 150 );
 
-                if ( itemH.type === 'url' ) {
+                if (item['type'] && itemH.type === 'url' ) {
                   return (
                     <td className={ classNames } key={ indexH + '_td' }>
                       <img className={"p-2 h-8 w-8"} src={"/storage/type/" + item['type']['img_url']} alt={''} />

@@ -21,8 +21,6 @@ mix.react( 'resources/js/app.js', 'public/js' )
 
 mix.disableSuccessNotifications();
 mix.browserSync({
-  proxy: "http://coderman.local",
-  host: "coderman.local",
-  port: 8888
+  proxy: "http://127.0.0.9",
 });
 mix.extract();

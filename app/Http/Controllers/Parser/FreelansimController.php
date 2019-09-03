@@ -29,6 +29,8 @@ class FreelansimController extends Controller {
       $title = $linkTask->text();
       $url = $link . $linkTask->attr('href');
 
+      if($linkTask->attr('class') ==='task-banner__title') continue;
+
       $htmlTask = file_get_contents( $url);
 	    $crawlerTask = new Crawler($htmlTask);
 
