@@ -15,8 +15,8 @@ return [
     'project_name' => 'Coderman.RU',
 
     // Menu logos
-    'logo_lg'   => '<b>Back</b>pack',
-    'logo_mini' => '<b>B</b>p',
+    'logo_lg'   => 'Coderman.ru',
+    'logo_mini' => '<b>C</b>',
 
     // Developer or company name. Shown in footer.
     'developer_name' => 'Peter Klimenko',
@@ -66,7 +66,7 @@ return [
 
     // The prefix used in all base routes (the 'admin' in admin/dashboard)
     // You can make sure all your URLs use this prefix by using the backpack_url() helper instead of url()
-    'route_prefix' => 'admin',
+    'route_prefix' => 'profile',
 
     // Set this to false if you would like to use your own AuthController and PasswordController
     // (you then need to setup your auth routes manually in your routes.php file)
@@ -149,5 +149,5 @@ return [
     |
     */
 
-    'license_code' => env('BACKPACK_LICENSE', false),
+    'license_code' => env('BACKPACK_LICENSE', true),
 ];

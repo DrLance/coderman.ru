@@ -14,7 +14,7 @@ class TypeAdminController extends CrudController {
 
   public function setup() {
     $this->crud->setModel("App\Models\Type");
-    $this->crud->setRoute("admin/type");
+    $this->crud->setRoute(config('backpack.base.route_prefix') . "/type");
     $this->crud->setEntityNameStrings('Type', 'Types');
 
 
