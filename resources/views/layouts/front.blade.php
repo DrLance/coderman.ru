@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="title" content="Фриланс агрегатор">
+  <meta name="title" content="Агрегатор фриланс бирж">
   <meta name="description"
         content="Агрегатор фриланс бирж, собирает данные со всех известных фриланс бирж в одном месте.">
-  <meta name="keywords" content="работа, фриланс, биржи, агрегатор, статистика, freelance">
+  <meta name="keywords" content="работа, фриланс, биржи, агрегатор, статистика, freelance, jobs">
   <meta name="yandex-verification" content="470b665093f69585"/>
   <meta name="csrf-token" content="{{csrf_token()}}">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -17,7 +17,7 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
-  <title>Coderman.RU</title>
+  <title>Агрегатор фриланс бирж | Coderman.ru</title>
 
   @if(!config('app.is_local'))
   <!-- Google Tag Manager -->

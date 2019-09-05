@@ -15,17 +15,17 @@ class GuruController extends Controller {
 	private $type = 6;
 
   public function fillData() : void {
-    $link = 'https://www.guru.com';
+    $link = 'http://www.guru.com';
     $prefix = '/d/jobs/';
 
-	  $client = new Client();
+	  $client = new Client(['verify' => false]);
 	  $res = $client->request('GET', $link . $prefix, [
 		  'headers' => ['User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36']
 	  ]);
 
 	  $html = $res->getBody()->getContents();
 
-    $crawler = new Crawler(null, $link);
+    $crawler = new Crawler(null, $link.$prefix);
     $crawler->addHtmlContent($html);
 
     $table =$crawler->filter('ul#serviceList')->children();

@@ -43,17 +43,18 @@ class ParseData extends Command {
 	 */
 	public function handle() {
 		try {
-			$freelanceHunt = new FreelanceHuntController();
+			/*$freelanceHunt = new FreelanceHuntController();
 			$weblancer     = new WeblancerController();
 			$fl            = new FlController();
 			$freelanceRu   = new FreelanceRuController();
 			$freelansim    = new FreelansimController();
-			$guru          = new GuruController();
 			$freelanceHunt->fillData();
 			$weblancer->fillData();
 			$fl->fillData();
 			$freelanceRu->fillData();
-			$freelansim->fillData();
+			$freelansim->fillData();*/
+
+			$guru          = new GuruController();
 			$guru->fillData();
 		} catch (\Exception $e) {
 
