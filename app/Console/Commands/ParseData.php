@@ -43,7 +43,7 @@ class ParseData extends Command {
 	 */
 	public function handle() {
 		try {
-			/*$freelanceHunt = new FreelanceHuntController();
+			$freelanceHunt = new FreelanceHuntController();
 			$weblancer     = new WeblancerController();
 			$fl            = new FlController();
 			$freelanceRu   = new FreelanceRuController();
@@ -52,7 +52,7 @@ class ParseData extends Command {
 			$weblancer->fillData();
 			$fl->fillData();
 			$freelanceRu->fillData();
-			$freelansim->fillData();*/
+			$freelansim->fillData();
 
 			$guru          = new GuruController();
 			$guru->fillData();
