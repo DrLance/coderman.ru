@@ -12,7 +12,5 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-console.log('asas');
-
-require('./components/Table/index');
+require('./components/Table');
 require('./main');

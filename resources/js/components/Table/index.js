@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from "react-dom";
-import TableContainer from "./TableContainer";
-if (document.getElementById('table')) {
-  ReactDOM.render(<TableContainer />, document.getElementById('table'));
+import TableContext from "./TableContext";
+
+if ( document.getElementById( 'table' ) ) {
+
+  ReactDOM.render(
+    <TableContext/>,
+    document.getElementById( 'table' ) );
 }

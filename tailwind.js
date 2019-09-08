@@ -1,6 +1,7 @@
 module.exports = {
   theme: {
-    extend: {}
+    extend: {},
+
   },
   variants: {
     tableLayout: ['responsive', 'hover', 'focus'],

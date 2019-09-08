@@ -56,7 +56,7 @@
 <main class="mb-64">
 @yield('content')
 </main>
-<footer class="bg-blue-400">
+<footer class="bg-blue-400 ">
   <div class="container mx-auto pt-10 pb-4">
     <div class="flex flex-row pb-5">
       <div class="w-1/3">

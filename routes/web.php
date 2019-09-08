@@ -16,9 +16,6 @@ Route::post('/', 'HomeController@index')->name('home');
 Route::get('/test','HomeController@test')->name('test');
 Route::get('/monitoring', 'Pages\MonitoringController@index')->name('monitoring');
 Route::get('/about', 'HomeController@about')->name('about');
-Route::prefix('api')->group(function () {
-	Route::post('/getData', 'Pages\MonitoringController@getData')->name('getData');
-});
 
 ///** CATCH-ALL ROUTE for Backpack/PageManager - needs to be at the end of your routes.php file  **/
 //Route::get('{page}/{subs?}', ['uses' => 'PageController@index'])

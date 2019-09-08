@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/getData', 'Pages\MonitoringController@getData')->name('getData');
+Route::post('/getTypes', 'Admin\TypeAdminController@getTypes')->name('getTypes');

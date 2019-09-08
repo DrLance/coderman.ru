@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Admin;
 
 
+use App\Models\Type;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Illuminate\Support\Facades\Storage;
 use Backpack\CRUD\CrudTrait;
@@ -160,6 +161,12 @@ class TypeAdminController extends CrudController {
 
       Storage::disk('public')->delete($file_path);
     }
+  }
+
+  public function getTypes() {
+  	$types = Type::all();
+
+  	return $types->toJson();
   }
 
 }
