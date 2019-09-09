@@ -37,7 +37,7 @@ class TableContainer extends React.Component {
 
   componentDidMount() {
     this.syncData();
-    //this.interval = setInterval( () => this.syncData(), 5000 );
+    this.interval = setInterval( () => this.syncData(), 5000 );
   }
 
 
