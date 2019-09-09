@@ -4,7 +4,7 @@ class TableRow extends React.PureComponent{
 
   render() {
     return (
-      <tr className="hover:shadow border fadeIn animated">
+      <tr className="hover:shadow border fadeIn animated " >
         {this.props.children}
       </tr>
     )

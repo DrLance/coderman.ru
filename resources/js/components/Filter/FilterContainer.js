@@ -11,7 +11,8 @@ class FilterContainer extends React.Component {
 
     this.state = {
       types: [],
-      keywords: ['test', 'test2']
+      keywords: [],
+      selectedType: null
     };
 
     this.onChangeType = this.onChangeType.bind( this );
@@ -29,18 +30,28 @@ class FilterContainer extends React.Component {
   }
 
   onChangeType( e, value ) {
-    console.log( e.target.value );
+    this.setState({selectedType: e.target.value},() => {
+      if(this.props.onChangeFilter) {
+        this.props.onChangeFilter(this.state);
+      }
+    });
   }
 
   onAddKeyword( e ) {
+    if(e.key !== 'Enter') return;
+
     let { keywords } = this.state;
     keywords.push( e.target.value );
 
     if ( e.target.value ) {
-      this.setState( { keywords } );
+      this.setState( { keywords } ,() => {
+        if(this.props.onChangeFilter) {
+          this.props.onChangeFilter(this.state);
+        }
+      });
     }
     e.target.value = null;
-    this.context = keywords;
+
   }
 
   onRemoveKeyword( e ) {
@@ -50,9 +61,12 @@ class FilterContainer extends React.Component {
 
     const newKeywords = keywords.filter( ( item ) => item !== currentValue && item !== '' );
 
-    this.setState( { keywords: newKeywords } );
+    this.setState( { keywords: newKeywords }, () => {
+      if(this.props.onChangeFilter) {
+        this.props.onChangeFilter(this.state);
+      }
+    } );
 
-    this.context = newKeywords;
   }
 
   render() {
@@ -73,22 +87,21 @@ class FilterContainer extends React.Component {
                   )
                 } ) }
               </select>
-              <label className="mb-3">Ключевые слова
-                <div className="flex flex-wrap mb-2">
+              <label className="mb-3 w-full">Ключевые слова
+                <div className="flex flex-wrap mb-2 w-full">
                   { keywords.map( ( item, index ) => {
                     return (
-                      <div ref={ this.refKeyword } key={ item + '_keyword' + index } className="pl-2 shadow mr-2 mt-1">
+                      <div ref={ this.refKeyword } key={ item + '_keyword' + index } className="pl-2 shadow mr-2 mt-1 text-blue-500">
                         { item }
-                        <span className="pl-2 pr-2 hover:bg-blue-200" data-keyword={ item }
+                        <span className="pl-2 pr-2 hover:bg-blue-200 text-blue-900" data-keyword={ item }
                               onClick={ this.onRemoveKeyword }>x</span>
                       </div>
                     )
                   } ) }
                 </div>
-                <input name="keywords" className="focus:outline-none border-b-2" onBlur={ this.onAddKeyword }/>
+                <input name="keywords" className="focus:outline-none border-b-2 w-full" onKeyPress={ this.onAddKeyword }/>
               </label>
             </label>
-            <button className="bg-green-600 rounded py-2 shadow text-white" type="submit">Отфильтровать</button>
           </div>
         </div>
       </aside>

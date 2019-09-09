@@ -53,7 +53,7 @@
     </div>
   </nav>
 </header>
-<main class="mb-64">
+<main class="md:mb-56">
 @yield('content')
 </main>
 <footer class="bg-blue-400 ">
