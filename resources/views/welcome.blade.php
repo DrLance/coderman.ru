@@ -19,8 +19,7 @@
         @endforeach
       </ul>
       <div class="flex items-center mt-4">
-        <p class="mr-1">актуальный заказы доступны по ссылке:</p>
-        <a class="text-blue-500" href="{{route('monitoring')}}"> Мониторинг</a>
+        
       </div>
     </div>
   </div>

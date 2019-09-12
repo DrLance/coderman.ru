@@ -46,6 +46,7 @@
           <img class="h-12 rounded" src="./android-chrome-192x192.png" alt=""/>
         </a>
         <div class="text-sm lg:flex-grow flex justify-end">
+          <a class="text-white font-bold text-lg mr-10" href="{{route('stat')}}">Статистика проектов</a>
           <a class="text-white font-bold text-lg mr-10" href="{{route('monitoring')}}">Мониторинг проектов</a>
           <a class="text-white font-bold text-lg mr-10" href="{{route('about')}}">О проекте</a>
         </div>

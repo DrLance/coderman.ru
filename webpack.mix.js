@@ -1,5 +1,5 @@
 const mix = require( 'laravel-mix' );
-
+require('laravel-mix-purgecss');
 const tailwindcss = require( 'tailwindcss' );
 /*
  |--------------------------------------------------------------------------
@@ -17,7 +17,7 @@ mix.react( 'resources/js/app.js', 'public/js' )
   .options( {
     processCssUrls: false,
     postCss: [tailwindcss( './tailwind.js' )],
-  } );
+  } ).purgeCss();
 
 mix.disableSuccessNotifications();
 mix.browserSync({

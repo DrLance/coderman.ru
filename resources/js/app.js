@@ -13,4 +13,5 @@ require('./bootstrap');
  */
 
 require('./components/Table');
+require('./components/Charts');
 require('./main');

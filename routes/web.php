@@ -12,10 +12,10 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::post('/', 'HomeController@index')->name('home');
 Route::get('/test','HomeController@test')->name('test');
 Route::get('/monitoring', 'Pages\MonitoringController@index')->name('monitoring');
 Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/stat', 'Pages\StatController@index')->name('stat');
 
 ///** CATCH-ALL ROUTE for Backpack/PageManager - needs to be at the end of your routes.php file  **/
 //Route::get('{page}/{subs?}', ['uses' => 'PageController@index'])

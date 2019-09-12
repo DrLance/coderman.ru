@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/getData', 'Pages\MonitoringController@getData')->name('getData');
 Route::post('/getTypes', 'Admin\TypeAdminController@getTypes')->name('getTypes');
+Route::post('/getStats', 'Pages\StatController@getStats')->name('getStats');
