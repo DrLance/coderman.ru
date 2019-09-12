@@ -33,7 +33,7 @@ class StatController extends Controller {
 				              ->whereBetween("parsed_data.created_at", [$t1, $t2])
 				              ->join('types', 'parsed_data.type_id', '=', 'types.id')
 				              ->select(DB::raw('count(*) as uv, types.name as name'))
-				              ->groupBy('types.id')
+				              ->groupBy('parsed_data.type_id')
 				              ->get();
 			}
 
@@ -46,7 +46,7 @@ class StatController extends Controller {
 			              ->whereBetween("parsed_data.created_at", [$t1, $t2])
 			              ->join('types', 'parsed_data.type_id', '=', 'types.id')
 			              ->select(DB::raw('count(*) as uv, types.name as name'))
-			              ->groupBy('types.id')
+			              ->groupBy('parsed_data.type_id')
 			              ->get();
 		}
 
