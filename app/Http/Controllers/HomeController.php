@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Pages\StatController;
 use App\Models\Type;
 use Backpack\PageManager\app\Models\Page;
 use Illuminate\Http\Request;
@@ -32,14 +33,6 @@ class HomeController extends Controller {
 
 
 				$fl->fillData();*/
-
-		$statData = DB::table('parsed_data')
-		              ->join('types', 'parsed_data.type_id', '=', 'types.id')
-		              ->select(DB::raw('count(*) as types_count, types.name as type_name'))
-		              ->groupBy('types.id')
-		              ->get();
-
-		dump($statData);
 
 	}
 

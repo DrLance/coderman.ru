@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import FilterContext from "../../context";
+import StatContainer from "../Stats/StatContainer";
 
 class FilterContainer extends React.Component {
 
@@ -73,10 +74,10 @@ class FilterContainer extends React.Component {
     const { types, keywords } = this.state;
 
     return (
-      <aside id="filter-side" className="md:w-3/12 flex sm:hidden">
+      <aside id="filter-side" className="w-3/12 flex flex-col invisible md:visible">
         <div className="w-full pl-4">
           <div className="shadow pl-4 px-3 py-2 rounded">
-            <p className="uppercase mb-5 text-center">фильтр</p>
+            <p className="uppercase p-2 text-center text-sm font-bold">фильтр</p>
             <label htmlFor="filter_type" className="flex flex-col font-bold">Фриланс биржа
               <select className="mb-5 mt-1 py-1 border-b-2 mb-3 text-lg" name="filter_type"
                       onChange={ this.onChangeType }>
@@ -104,6 +105,7 @@ class FilterContainer extends React.Component {
             </label>
           </div>
         </div>
+        <StatContainer />
       </aside>
     )
   }

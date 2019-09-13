@@ -54,4 +54,21 @@ class StatController extends Controller {
 		return response()->json($statData);
 	}
 
+	public function getDayStats(Request $request) {
+		$statData = [];
+
+		$t1  = Carbon::now()->startOfDay();
+		$t2  = Carbon::now()->endOfDay();
+
+		$statData = DB::table('parsed_data')
+		              ->whereBetween("parsed_data.created_at", [$t1, $t2])
+		              ->join('types', 'parsed_data.type_id', '=', 'types.id')
+		              ->select(DB::raw('count(*) as project_count, types.name as name, types.img_url'))
+		              ->groupBy('types.name', 'types.img_url')
+		              ->get();
+
+
+		return response()->json($statData);
+	}
+
 }
