@@ -38,43 +38,41 @@
     @endif
 </head>
 <body>
-<header class="shadow-md">
-  <nav class="flex items-center justify-between flex-wrap bg-blue-400 p-6">
+<header class="border-b border-border">
+  <nav class="flex items-center justify-between flex-wrap p-6">
     <div class="container mx-auto">
       <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <a href="/" title="coderman.ru">
           <img class="h-12 rounded" src="./android-chrome-192x192.png" alt=""/>
         </a>
-        <div class="text-sm lg:flex-grow flex justify-end">
-          <a class="text-white font-bold text-lg mr-10" href="{{route('stat')}}">Статистика проектов</a>
-          <a class="text-white font-bold text-lg mr-10" href="{{route('monitoring')}}">Мониторинг проектов</a>
-          <a class="text-white font-bold text-lg mr-10" href="{{route('about')}}">О проекте</a>
+        <div class="text-sm md:flex-grow flex md:justify-end  invisible md:visible">
+          <a class="text-content text-13p mr-10 hover:text-blue" href="{{route('stat')}}">Статистика проектов</a>
+          <a class="text-content text-13p mr-10  hover:text-blue" href="{{route('monitoring')}}">Мониторинг проектов</a>
+          <a class="text-content text-13p mr-10  hover:text-blue" href="{{route('about')}}">О проекте</a>
         </div>
       </div>
     </div>
   </nav>
 </header>
-<main class="md:mb-56">
+<main class="mb-5">
 @yield('content')
 </main>
-<footer class="bg-blue-400 ">
-  <div class="container mx-auto pt-10 pb-4">
-    <div class="flex flex-row pb-5">
-      <div class="w-1/3">
-
+<footer class="border-t border-border mx-2 sm:mx-0">
+  <div class="container mx-auto mt-10 pb-4">
+    <div class="flex flex-col items-center md:flex-row pb-5">
+      <div class="md:w-1/3">
       </div>
-      <div class="w-1/3">
-
+      <div class="md:w-1/3">
       </div>
-      <div class="w-1/3">
-        <a href="https://t.me/coderman_fl" class="text-white flex flex-row items-center font-bold">
-          <img class="pr-2 h-8 w-8" src="./img/telegram.svg">
+      <div class="md:w-1/3">
+        <a href="https://t.me/coderman_fl" class="text-content text-sm flex flex-row items-center font-bold">
+          <img class="pr-2 h-6 w-7" src="./img/telegram.svg">
           @Coderman_fl</a>
       </div>
     </div>
     <div class="flex flex-row container mx-auto ">
       <div class="flex justify-center items-center w-full">
-        <p class="text-white text-xs">Copyright (c) 2019 coderman.ru</p>
+        <p class="text-heading text-xs">Copyright (c) 2019 Coderman.ru</p>
       </div>
     </div>
   </div>

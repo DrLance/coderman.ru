@@ -59,12 +59,12 @@ export default class SampleLineChart extends React.Component {
     return (
 
       <div className="flex flex-col">
-        <label className="text-center text-bold mb-10">Период c
-          <input className="ml-2 w-25 border-2" type="date" defaultValue={ this.state.dateStart }
+        <label className="text-center text-bold mb-10 text-content">Период c
+          <input className="ml-2 w-25 border border-border" type="date" defaultValue={ this.state.dateStart }
                  onChange={ ( e ) => this.changeDate( 'start', e ) } max={today}/>
 
-          <span className="ml-1 mr-1">по</span>
-          <input className="w-25 border-2" type="date" defaultValue={ this.state.dateEnd }
+          <span className="mx-2">по</span>
+          <input className="w-25 border border-border" type="date" defaultValue={ this.state.dateEnd }
                  onChange={ ( e ) => this.changeDate( 'end', e ) }
           />
         </label>

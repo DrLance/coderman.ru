@@ -1,7 +1,7 @@
 @extends('layouts.front')
 @section('content')
-  <div class="container mx-auto flex-col">
-    <h1 class="py-10 text-center text-xl font-bold">Статистика по кол-ву проектов у разных бирж</h1>
+  <div class="container mx-auto flex-col mt-20">
+    <h1 class="text-center text-xl text-heading">Статистика по количеству проектов<br>у разных фриланс бирж</h1>
     <div class="mt-10" id="charts">
     </div>
   </div>

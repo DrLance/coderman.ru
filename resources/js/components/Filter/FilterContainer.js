@@ -77,9 +77,9 @@ class FilterContainer extends React.Component {
       <aside id="filter-side" className="w-3/12 flex flex-col invisible md:visible">
         <div className="w-full pl-4">
           <div className="shadow pl-4 px-3 py-2 rounded">
-            <p className="uppercase p-2 text-center text-sm font-bold">фильтр</p>
-            <label htmlFor="filter_type" className="flex flex-col font-bold">Фриланс биржа
-              <select className="mb-5 mt-1 py-1 border-b-2 mb-3 text-lg" name="filter_type"
+            <p className="uppercase p-2 text-center text-sm font-bold text-heading">фильтр</p>
+            <label htmlFor="filter_type" className="flex flex-col text-heading">Фриланс биржа
+              <select className="mb-5 mt-1 py-1 border-b border-border mb-3 text-lg" name="filter_type"
                       onChange={ this.onChangeType }>
                 <option value="0">Все</option>
                 { types.map( ( item, index ) => {
@@ -92,15 +92,15 @@ class FilterContainer extends React.Component {
                 <div className="flex flex-wrap mb-2 w-full">
                   { keywords.map( ( item, index ) => {
                     return (
-                      <div ref={ this.refKeyword } key={ item + '_keyword' + index } className="pl-2 shadow mr-2 mt-1 text-blue-500">
+                      <div ref={ this.refKeyword } key={ item + '_keyword' + index } className="pl-2 shadow mr-2 mt-1 text-blue">
                         { item }
-                        <span className="pl-2 pr-2 hover:bg-blue-200 text-blue-900" data-keyword={ item }
+                        <span className="pl-2 pr-2 text-heading hover:text-blue" data-keyword={ item }
                               onClick={ this.onRemoveKeyword }>x</span>
                       </div>
                     )
                   } ) }
                 </div>
-                <input name="keywords" className="focus:outline-none border-b-2 w-full" onKeyPress={ this.onAddKeyword }/>
+                <input name="keywords" className="focus:outline-none border-b border-border w-full" onKeyPress={ this.onAddKeyword }/>
               </label>
             </label>
           </div>

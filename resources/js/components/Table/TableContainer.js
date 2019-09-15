@@ -76,11 +76,11 @@ class TableContainer extends React.Component {
         <div className="md:w-9/12">
           <table className="table-fixed" >
             <thead >
-            <tr className="border-t-2 ">
+            <tr className="border border-border ">
               { tableHeaders.map( ( item, index ) => {
                 return (
                   <th key={ index + '_th' }
-                      className="px-6 font-bold uppercase text-black border-r border-l border-b-2 w-4/12">{ item.name }</th>
+                      className="px-6 uppercase border border-border text-heading w-4/12">{ item.name }</th>
                 )
               } ) }
             </tr>
@@ -90,7 +90,7 @@ class TableContainer extends React.Component {
               return (
                 <TableRow key={ item.id + '_tr' }>
                   { tableHeaders.map( ( itemH, indexH ) => {
-                    const classNames = "text-sm border-l border-r " + itemH.classes;
+                    const classNames = "text-sm " + itemH.classes;
                     let tmpText = item[itemH.type];
                     tmpText.trim();
                     let text = shorten( tmpText, 150 );
