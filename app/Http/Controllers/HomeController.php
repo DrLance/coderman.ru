@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Pages\StatController;
+use App\Http\Controllers\Parser\PchelController;
+use App\Http\Controllers\Parser\UpworkController;
 use App\Models\Type;
 use Backpack\PageManager\app\Models\Page;
 use Illuminate\Http\Request;
@@ -29,10 +31,8 @@ class HomeController extends Controller {
 
 	public function test(Request $request) {
 
-		/*		$fl = new FreelansimController();
-
-
-				$fl->fillData();*/
+				$fl = new UpworkController();
+				$fl->fillData();
 
 	}
 

@@ -137,6 +137,7 @@ class TypeAdminController extends CrudController {
     if (\Str::startsWith($value, 'data:image')) {
       $this->deleteImage($prev_value);
       $image = \Image::make($value);
+
       switch ($image->mime()) {
         case 'image/png':
           $extension = '.png';

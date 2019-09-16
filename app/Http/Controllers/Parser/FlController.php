@@ -15,23 +15,16 @@ class FlController extends Controller {
 	private $type = 3;
 
   public function fillData() : void {
-	  $context = stream_context_create(
-		  array(
-			  "http" => array(
-			  	'method' => 'GET',
-				  "header" => "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"
-			  )
-		  )
-	  );
+	  $prefix = 'https://www.fl.ru';
+	  $link = $prefix. '/projects/?kind=5';
 
 	  $client = new Client();
-	  $res = $client->request('GET', 'https://www.fl.ru/projects/?kind=5', [
+	  $res = $client->request('GET', $link, [
 	  	'headers' => ['User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36']
 	  ]);
 
 	  $html = $res->getBody()->getContents();
-	  $prefix = 'https://www.fl.ru';
-	  $link = $prefix. '/projects/?kind=5';
+
     $crawler = new Crawler($html);
     $projects =$crawler->filter('h2.b-post__title');
 

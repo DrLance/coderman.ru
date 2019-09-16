@@ -46,8 +46,8 @@
           <img class="h-12 rounded" src="./android-chrome-192x192.png" alt=""/>
         </a>
         <div class="text-sm md:flex-grow flex md:justify-end  invisible md:visible">
-          <a class="text-content text-13p mr-10 hover:text-blue" href="{{route('stat')}}">Статистика проектов</a>
-          <a class="text-content text-13p mr-10  hover:text-blue" href="{{route('monitoring')}}">Мониторинг проектов</a>
+          <a class="text-content text-13p mr-10 hover:text-blue" href="{{route('stat')}}">Статистика</a>
+          <a class="text-content text-13p mr-10  hover:text-blue" href="{{route('monitoring')}}">Мониторинг</a>
           <a class="text-content text-13p mr-10  hover:text-blue" href="{{route('about')}}">О проекте</a>
         </div>
       </div>

@@ -51,16 +51,16 @@
         },
         {
             "name": "backpack/base",
-            "version": "1.1.11",
+            "version": "1.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Base.git",
-                "reference": "f156323c35991cfc5a18111b777029819295b989"
+                "reference": "001c4af05b9d9ed19a513b42a3168fda17a0e963"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Base/zipball/f156323c35991cfc5a18111b777029819295b989",
-                "reference": "f156323c35991cfc5a18111b777029819295b989",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Base/zipball/001c4af05b9d9ed19a513b42a3168fda17a0e963",
+                "reference": "001c4af05b9d9ed19a513b42a3168fda17a0e963",
                 "shasum": ""
             },
             "require": {
@@ -112,7 +112,7 @@
                 "backpack",
                 "base"
             ],
-            "time": "2019-09-06T03:52:37+00:00"
+            "time": "2019-09-14T02:56:37+00:00"
         },
         {
             "name": "backpack/crud",
@@ -688,23 +688,23 @@
         },
         {
             "name": "cviebrock/eloquent-sluggable",
-            "version": "6.0.0",
+            "version": "6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cviebrock/eloquent-sluggable.git",
-                "reference": "67cd991c6ee443371f6f7c3253c9828623b41a70"
+                "reference": "509ced3930aed5ba327ab1d60a1c741c6018f934"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cviebrock/eloquent-sluggable/zipball/67cd991c6ee443371f6f7c3253c9828623b41a70",
-                "reference": "67cd991c6ee443371f6f7c3253c9828623b41a70",
+                "url": "https://api.github.com/repos/cviebrock/eloquent-sluggable/zipball/509ced3930aed5ba327ab1d60a1c741c6018f934",
+                "reference": "509ced3930aed5ba327ab1d60a1c741c6018f934",
                 "shasum": ""
             },
             "require": {
                 "cocur/slugify": "^3.2",
-                "illuminate/config": "~6.0.0",
-                "illuminate/database": "~6.0.0",
-                "illuminate/support": "~6.0.0",
+                "illuminate/config": "^6.0",
+                "illuminate/database": "^6.0",
+                "illuminate/support": "^6.0",
                 "php": "^7.2"
             },
             "require-dev": {
@@ -747,7 +747,7 @@
                 "slug",
                 "sluggable"
             ],
-            "time": "2019-09-04T01:11:01+00:00"
+            "time": "2019-09-14T02:58:44+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -5918,16 +5918,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.5.15",
+            "version": "7.5.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "d79c053d972856b8b941bb233e39dc521a5093f0"
+                "reference": "316afa6888d2562e04aeb67ea7f2017a0eb41661"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/d79c053d972856b8b941bb233e39dc521a5093f0",
-                "reference": "d79c053d972856b8b941bb233e39dc521a5093f0",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/316afa6888d2562e04aeb67ea7f2017a0eb41661",
+                "reference": "316afa6888d2562e04aeb67ea7f2017a0eb41661",
                 "shasum": ""
             },
             "require": {
@@ -5998,7 +5998,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-08-21T07:05:16+00:00"
+            "time": "2019-09-14T09:08:39+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -6220,16 +6220,16 @@
         },
         {
             "name": "sebastian/exporter",
-            "version": "3.1.1",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "06a9a5947f47b3029d76118eb5c22802e5869687"
+                "reference": "68609e1261d215ea5b21b7987539cbfbe156ec3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/06a9a5947f47b3029d76118eb5c22802e5869687",
-                "reference": "06a9a5947f47b3029d76118eb5c22802e5869687",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/68609e1261d215ea5b21b7987539cbfbe156ec3e",
+                "reference": "68609e1261d215ea5b21b7987539cbfbe156ec3e",
                 "shasum": ""
             },
             "require": {
@@ -6283,7 +6283,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2019-08-11T12:43:14+00:00"
+            "time": "2019-09-14T09:02:43+00:00"
         },
         {
             "name": "sebastian/global-state",
