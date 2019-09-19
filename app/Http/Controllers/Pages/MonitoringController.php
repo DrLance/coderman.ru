@@ -36,7 +36,7 @@ class MonitoringController extends Controller {
 		}
 
 
-		return response()->json($parsedData->orderBy('created_at', 'DESC')->limit(43)->get());
+		return response()->json($parsedData->orderBy('created_at', 'DESC')->limit(50)->get());
 	}
 
 }

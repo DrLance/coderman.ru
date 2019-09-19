@@ -39,16 +39,16 @@
 </head>
 <body>
 <header class="border-b border-border">
-  <nav class="flex items-center justify-between flex-wrap p-6">
-    <div class="container mx-auto">
-      <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+  <nav class="flex items-center justify-between flex-wrap py-6 container-main md:mx-auto mx-2 md:mx-0">
+    <div class="md:w-full w-full">
+      <div class="flex md:justify-between items-center">
         <a href="/" title="coderman.ru">
           <img class="h-12 rounded" src="./android-chrome-192x192.png" alt=""/>
         </a>
-        <div class="text-sm md:flex-grow flex md:justify-end  invisible md:visible">
+        <div id="menu" class="flex flex-col text-sm ml-5 md:flex-grow md:justify-end  md:flex md:flex-row">
           <a class="text-content text-13p mr-10 hover:text-blue" href="{{route('stat')}}">Статистика</a>
           <a class="text-content text-13p mr-10  hover:text-blue" href="{{route('monitoring')}}">Мониторинг</a>
-          <a class="text-content text-13p mr-10  hover:text-blue" href="{{route('about')}}">О проекте</a>
+          <a class="text-content text-13p hover:text-blue" href="{{route('about')}}">О проекте</a>
         </div>
       </div>
     </div>
@@ -58,14 +58,14 @@
 @yield('content')
 </main>
 <footer class="border-t border-border mx-2 sm:mx-0">
-  <div class="container mx-auto mt-10 pb-4">
+  <div class="container-main mx-auto mt-10 pb-4">
     <div class="flex flex-col items-center md:flex-row pb-5">
       <div class="md:w-1/3">
       </div>
       <div class="md:w-1/3">
       </div>
       <div class="md:w-1/3">
-        <a href="https://t.me/coderman_fl" class="text-content text-sm flex flex-row items-center font-bold">
+        <a href="https://t.me/coderman_fl" class="text-content text-sm flex flex-row items-center  md:justify-end  font-bold">
           <img class="pr-2 h-6 w-7" src="./img/telegram.svg">
           @Coderman_fl</a>
       </div>

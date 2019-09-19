@@ -10,9 +10,9 @@ body {
   font-family: $font-family-sans-serif;
 }
 
-//.container-main {
-//  width: 960px;
-//  @media screen and (max-width: 740px) {
-//    width: 100%;
-//  }
-//}
+.container-main {
+  max-width: 100%;
+  @media screen and (min-width: 640px) {
+    max-width: 1140px;
+  }
+}
