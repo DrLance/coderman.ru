@@ -12,7 +12,7 @@
         "ext-json": "*",
         "backpack/crud": "v4.x-dev as 4.0.0",
         "backpack/pagemanager": "v4.x-dev as 2.0.0",
-        "backpack/permissionmanager": "v4.x-dev as 4.0.0",
+        "backpack/permissionmanager": "^4.0.0",
         "barryvdh/laravel-elfinder": "^0.4.3",
         "fideloper/proxy": "^4.0",
         "laravel-notification-channels/telegram": "^0.0.5",
@@ -22,14 +22,12 @@
         "symfony/dom-crawler": "^4.3"
     },
     "require-dev": {
-        "backpack/generators": "^1.2",
-        "beyondcode/laravel-dump-server": "^1.0",
-        "filp/whoops": "^2.0",
+        "backpack/generators": "^2.0",
         "fzaninotto/faker": "^1.4",
         "laracasts/generators": "dev-master",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
-        "phpunit/phpunit": "^7.5"
+        "phpunit/phpunit": "^8.0"
     },
     "config": {
         "optimize-autoloader": true,
