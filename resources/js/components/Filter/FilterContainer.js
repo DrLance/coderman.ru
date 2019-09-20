@@ -10,11 +10,22 @@ class FilterContainer extends React.Component {
   constructor( props ) {
     super( props );
 
-    this.state = {
-      types: [],
-      keywords: [],
-      selectedType: null
-    };
+    let localFilter = localStorage.getItem('coderman_filter');
+
+    if(localFilter) {
+      localFilter = JSON.parse(localFilter);
+      this.state = {
+        types: [],
+        keywords: localFilter.keywords,
+        selectedType: localFilter.selectedType
+      };
+    } else {
+      this.state = {
+        types: [],
+        keywords: [],
+        selectedType: 0
+      };
+    }
 
     this.onChangeType = this.onChangeType.bind( this );
     this.onAddKeyword = this.onAddKeyword.bind( this );
@@ -71,7 +82,7 @@ class FilterContainer extends React.Component {
   }
 
   render() {
-    const { types, keywords } = this.state;
+    const { types, keywords, selectedType } = this.state;
 
     return (
       <aside id="filter-side" className="w-3/12 flex flex-col invisible md:visible">
@@ -80,11 +91,12 @@ class FilterContainer extends React.Component {
             <p className="uppercase p-2 text-center text-sm font-bold text-heading">фильтр</p>
             <label htmlFor="filter_type" className="flex flex-col text-heading">Фриланс биржа
               <select className="mb-5 mt-1 py-1 border-b border-border mb-3 text-lg" name="filter_type"
-                      onChange={ this.onChangeType }>
+                      onChange={ this.onChangeType } value={selectedType}>
                 <option value="0">Все</option>
                 { types.map( ( item, index ) => {
+
                   return (
-                    <option key={ index + '_opt' } value={ item.id }>{ item.name }</option>
+                    <option key={ index + '_opt' } value={ item.id } >{ item.name }</option>
                   )
                 } ) }
               </select>

@@ -2,12 +2,24 @@ import React from 'react';
 import axios from 'axios';
 import TableRow from "./TableRow";
 import FilterContainer from "../Filter/FilterContainer";
-import { shorten } from "./../../utils";
 
 class TableContainer extends React.Component {
 
   constructor (props) {
     super(props);
+
+    let localFilter = localStorage.getItem('coderman_filter');
+    let oldFilter = {};
+
+    if(localFilter) {
+      localFilter = JSON.parse(localFilter);
+      oldFilter = {
+        'keywords' : localFilter.keywords,
+        'selectedType': localFilter.selectedType
+      };
+
+    }
+
     this.state = {
       tableHeaders: [
         {
@@ -23,7 +35,7 @@ class TableContainer extends React.Component {
       ],
       data: [],
       dataInterval: null,
-      filter: {}
+      filter: oldFilter
     };
 
     this.syncData = this.syncData.bind(this);
@@ -42,28 +54,38 @@ class TableContainer extends React.Component {
 
   syncData () {
     const { filter } = this.state;
+
     axios.post('/api/getData', {
       filter
     }).then(({ data }) => {
-      this.setState({ data: data })
+      this.setState({ data: data });
     });
   }
 
   changeFilter (params) {
-    this.setState({ filter: params }, () => this.syncData());
+    this.setState({ filter: params }, () => {
+      this.syncData();
+      this.saveLocalStorage();
+    });
   }
 
-  showDescription(e,t) {
+  showDescription (e, t) {
     t.preventDefault();
     const pTaq = document.getElementById(e + '_description');
 
-    if(pTaq.classList.contains('hidden')) {
+    if (pTaq.classList.contains('hidden')) {
       pTaq.classList.remove('hidden');
     } else {
       pTaq.classList.add('hidden');
     }
 
   }
+
+  saveLocalStorage = () => {
+    const {filter: {selectedType, keywords}} = this.state;
+    const filterObj = {keywords, selectedType};
+    localStorage.setItem('coderman_filter', JSON.stringify(filterObj));
+  };
 
   render () {
     const { tableHeaders, data } = this.state;
@@ -79,7 +101,7 @@ class TableContainer extends React.Component {
 
     return (
       <React.Fragment>
-        <div className="md:w-9/12">
+        <div className="md:w-9/12 shadow">
           <table className="table-auto w-full">
             <thead>
             <tr className="">
@@ -106,12 +128,14 @@ class TableContainer extends React.Component {
                       return (
                         <td className={classNames} key={indexH + '_td'}>
                           <div className="flex items-center">
-                            <img className={"p-2 h-8 w-8"} src={"/storage/type/" + item['type']['img_url']}
+                            <img className={"p-2 w-8 "} src={"/storage/type/" + item['type']['img_url']}
                                  alt=""/>
                             <a target="_blank" href={item['url']}>{item['title']}</a>
-                            <a href="_blank" onClick={this.showDescription.bind(null, item.id)} className="ml-2 text-blue text-xs">подробнее...</a>
+                            <a href="_blank" onClick={this.showDescription.bind(null, item.id)}
+                               className="ml-2 text-blue text-xs">подробнее...</a>
                           </div>
-                          <p id={item.id + '_description'} className="hidden ml-8 pb-2 w-full text-sm">{item.description}</p>
+                          <p id={item.id + '_description'}
+                             className="hidden ml-8 pb-2 w-full text-sm">{item.description}</p>
                         </td>
                       )
                     }

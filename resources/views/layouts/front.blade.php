@@ -46,7 +46,7 @@
         <a href="/" title="coderman.ru">
           <img class="h-12 rounded" src="./android-chrome-192x192.png" alt=""/>
         </a>
-        <div id="menu" class="flex flex-col text-sm ml-5 md:flex-grow md:justify-end  md:flex md:flex-row">
+        <div id="menu" class="flex flex-col text-sm ml-5 md:justify-end md:flex md:flex-row">
           <a class="text-content text-13p mr-10 hover:text-blue" href="{{route('stat')}}">Статистика</a>
           <a class="text-content text-13p mr-10  hover:text-blue" href="{{route('monitoring')}}">Мониторинг</a>
           <a class="text-content text-13p hover:text-blue" href="{{route('about')}}">О проекте</a>
