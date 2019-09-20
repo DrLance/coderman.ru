@@ -7,7 +7,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Type;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Illuminate\Support\Facades\Storage;
-use Backpack\CRUD\CrudTrait;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Http\Request;
 
 class TypeAdminController extends CrudController {

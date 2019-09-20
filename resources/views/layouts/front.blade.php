@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="title" content="Агрегатор фриланс бирж">
   <meta name="description"
-        content="Агрегатор фриланс бирж, собирает данные со всех известных фриланс бирж в одном месте.">
+        content="Устали заходить на сайты разных фриланс бирж? Теперь ненужно.
+        Агрегатор фриланс бирж, собирает данные со всех известных фриланс бирж в одном месте.">
   <meta name="keywords" content="работа, фриланс, биржи, агрегатор, статистика, freelance, jobs">
   <meta name="yandex-verification" content="470b665093f69585"/>
   <meta name="csrf-token" content="{{csrf_token()}}">
@@ -19,23 +20,23 @@
 
   <title>Агрегатор фриланс бирж | Coderman.ru</title>
 
-  @if(!config('app.is_local'))
+@if(!config('app.is_local'))
   <!-- Google Tag Manager -->
-  <script>(function ( w, d, s, l, i ) {
-      w[l] = w[l] || [];
-      w[l].push( {
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      } );
-      var f = d.getElementsByTagName( s )[0],
-        j = d.createElement( s ), dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src =
-        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore( j, f );
-    })( window, document, 'script', 'dataLayer', 'GTM-NW7B54D' );</script>
-  <!-- End Google Tag Manager -->
-    @endif
+    <script>(function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-NW7B54D');</script>
+    <!-- End Google Tag Manager -->
+  @endif
 </head>
 <body>
 <header class="border-b border-border">
@@ -55,7 +56,7 @@
   </nav>
 </header>
 <main class="mb-5">
-@yield('content')
+  @yield('content')
 </main>
 <footer class="border-t border-border mx-2 sm:mx-0">
   <div class="container-main mx-auto mt-10 pb-4">
@@ -65,7 +66,8 @@
       <div class="md:w-1/3">
       </div>
       <div class="md:w-1/3">
-        <a href="https://t.me/coderman_fl" class="text-content text-sm flex flex-row items-center  md:justify-end  font-bold">
+        <a href="https://t.me/coderman_fl"
+           class="text-content text-sm flex flex-row items-center  md:justify-end  font-bold">
           <img class="pr-2 h-6 w-7" src="./img/telegram.svg">
           @Coderman_fl</a>
       </div>

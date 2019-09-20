@@ -39,7 +39,9 @@ class FreelanceHuntController extends Controller {
 
       $description = $aTitle->attr('title');
 
-      $categoryName = $titleUrl->filter('div > small')->getNode(0) ? $titleUrl->filter('div > small')->text() : '';
+      $categoryName = $titleUrl
+	      ->filter('div > small')
+	      ->getNode(0) ? $titleUrl->filter('div > small')->text() : '';
 
       $parsedData = ParsedData::whereUrl($url)->get();
 
