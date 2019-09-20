@@ -5,14 +5,22 @@ namespace App\Http\Controllers\Pages;
 
 use App\Models\ParsedData;
 use App\Http\Controllers\Controller;
+use Backpack\PageManager\app\Models\Page;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class StatController extends Controller {
 
+	public $data;
+
 	public function index() {
-		return view('pages.stat');
+
+		$page = Page::findBySlug('stat');
+
+		$this->data['page'] = $page->withFakes();
+
+		return view('pages.stat',$this->data);
 	}
 
 	public function getStats(Request $request) {

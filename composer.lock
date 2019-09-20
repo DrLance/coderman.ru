@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b3f6f4b15cb2330ff17e88db5a1fad0",
+    "content-hash": "aa8838ed84175396f685f1d5f561d694",
     "packages": [
         {
             "name": "backpack/crud",
@@ -1859,6 +1859,69 @@
                 "psysh"
             ],
             "time": "2019-08-07T15:10:45+00:00"
+        },
+        {
+            "name": "laravelium/sitemap",
+            "version": "v6.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/Laravelium/Sitemap.git",
+                "reference": "2b8e3b9f3ccd9ca7cdd3c21dcecf722eb1275d49"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/Laravelium%2FSitemap/repository/archive.zip?sha=2b8e3b9f3ccd9ca7cdd3c21dcecf722eb1275d49",
+                "reference": "2b8e3b9f3ccd9ca7cdd3c21dcecf722eb1275d49",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/filesystem": "~6.0",
+                "illuminate/support": "~6.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "laravel/framework": "~6.0",
+                "orchestra/testbench-core": "3.8.*",
+                "phpunit/phpunit": "^7.5 || ^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laravelium\\Sitemap\\SitemapServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Laravelium\\Sitemap": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roumen Damianoff",
+                    "email": "roumen@damianoff.com",
+                    "homepage": "https://damianoff.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravelium Sitemap package for Laravel.",
+            "homepage": "https://gitlab.com/Laravelium",
+            "keywords": [
+                "Sitemap",
+                "generator",
+                "google-news",
+                "html",
+                "laravel",
+                "laravelium",
+                "php",
+                "xml"
+            ],
+            "time": "2019-09-03T19:16:19+00:00"
         },
         {
             "name": "league/flysystem",

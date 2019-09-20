@@ -12,11 +12,21 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller {
 
+	public $data;
+
 	public function index(Request $request) {
 
 		$types = Type::all();
 
-		return view('welcome', ['types' => $types]);
+		$this->data['types'] = $types;
+
+		$page = Page::findBySlug('home');
+
+		if($page) {
+			$this->data['page'] = $page->withFakes();
+		}
+
+		return view('welcome', $this->data);
 	}
 
 	public function about(Request $request) {

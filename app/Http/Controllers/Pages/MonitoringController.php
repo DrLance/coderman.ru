@@ -4,11 +4,22 @@
 namespace App\Http\Controllers\Pages;
 use App\Models\ParsedData;
 use App\Http\Controllers\Controller;
+use Backpack\PageManager\app\Models\Page;
 use Illuminate\Http\Request;
 
 class MonitoringController extends Controller {
 
+	public $data;
+
 	public function index() {
+		$page = Page::findBySlug('monitoring');
+
+		if($page) {
+			$this->data['page'] = $page->withFakes();
+
+			return view('pages.monitoring', $this->data);
+		}
+
 		return view('pages.monitoring');
 	}
 
