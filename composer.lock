@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "af3acd6a315143a8052c54963038cfdee87b5bea"
+                "reference": "af3bc615b0971f8687025d839e37654ce16ce8cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/af3acd6a315143a8052c54963038cfdee87b5bea",
-                "reference": "af3acd6a315143a8052c54963038cfdee87b5bea",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/af3bc615b0971f8687025d839e37654ce16ce8cc",
+                "reference": "af3bc615b0971f8687025d839e37654ce16ce8cc",
                 "shasum": ""
             },
             "require": {
@@ -91,7 +91,7 @@
                 "read",
                 "update"
             ],
-            "time": "2019-09-20T06:24:33+00:00"
+            "time": "2019-09-22T08:41:41+00:00"
         },
         {
             "name": "backpack/pagemanager",

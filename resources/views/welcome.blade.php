@@ -10,7 +10,7 @@
         @foreach($types as $type)
           <li class="shadow rounded px-3 py-4 mr-2 sm:mr-4 font-bold text-center flex items-center mt-2  hover:shadow-xl">
             @if($type->img_url)
-              <img class="h-5 mr-2" src="{{asset('/storage/type') . '/' . $type->img_url}}">
+              <img class="h-5 mr-2" src="{{asset('/storage/type') . '/' . $type->img_url}}" alt="{{$type->name}}">
             @endif
             {{$type->name}}
           </li>
@@ -27,7 +27,7 @@
       <div class="shadow border border-border rounded px-4 py-4 md:w-1/4 md:mx-10 mt-3 flex items-center flex-col">
         <img class="py-4" src="{{asset('img/tax.png')}}" alt="">
         <h3 class="text-heading text-center text-lg">Полность бесплатный</h3>
-        <p class="text-center text-content pt-3">Нету никаких скрытыйх платежей, все по настоящему бесплатно</p>
+        <p class="text-center text-content pt-3">Нету никаких скрытых платежей, все по настоящему бесплатно</p>
       </div>
       <div class="shadow border border-border rounded px-4 py-4 md:w-1/4 md:mx-10 mt-3 flex items-center flex-col">
         <img class="py-4" src="{{asset('img/folder.png')}}" alt="">

@@ -85,7 +85,7 @@ class FilterContainer extends React.Component {
     const { types, keywords, selectedType } = this.state;
 
     return (
-      <aside id="filter-side" className="w-3/12 flex flex-col invisible md:visible">
+      <aside id="filter-side" className="md:w-3/12 hidden md:flex md:flex-col">
         <div className="w-full pl-4">
           <div className="shadow pl-4 px-3 py-2 rounded">
             <p className="uppercase p-2 text-center text-sm font-bold text-heading">фильтр</p>
