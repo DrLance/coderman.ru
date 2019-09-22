@@ -16,15 +16,17 @@ class UpworkController extends Controller {
 
   public function fillData() : void {
 
+  	$chromeVer = mt_rand(50,75);
+
 	  $context = stream_context_create(
 		  array(
 			  'http' => array(
-				  'user_agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36',
+				  'user_agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/'.$chromeVer.'.0.2661.102 Safari/537.36',
 			  ),
 		  ));
 
 	  $prefix = 'https://www.upwork.com';
-	  $link = $prefix. '/search/jobs/?page=1&per_page=30';
+	  $link = $prefix. '/search/jobs/?page=1&per_page=20';
 
 	  $html = file_get_contents($link,false,$context);
 

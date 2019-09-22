@@ -20,7 +20,7 @@ class ParseData extends Command {
 	 *
 	 * @var string
 	 */
-	protected $signature = 'parse:data';
+	protected $signature = 'parse:data {params}';
 
 	/**
 	 * The console command description.
@@ -44,26 +44,32 @@ class ParseData extends Command {
 	 * @return mixed
 	 */
 	public function handle() {
+		$params = $this->argument('params');
+		dump($params);
+
 		try {
-			$freelanceHunt = new FreelanceHuntController();
-			$weblancer     = new WeblancerController();
-			$fl            = new FlController();
-			$freelanceRu   = new FreelanceRuController();
-			$freelansim    = new FreelansimController();
-			$pchel = new PchelController();
+			if($params === '1') {
+				$freelanceHunt = new FreelanceHuntController();
+				$weblancer     = new WeblancerController();
+				$fl            = new FlController();
+				$freelanceRu   = new FreelanceRuController();
+				$freelansim    = new FreelansimController();
+				$pchel         = new PchelController();
 
-			$freelanceHunt->fillData();
-			$weblancer->fillData();
-			$fl->fillData();
-			$freelanceRu->fillData();
-			$freelansim->fillData();
-			$pchel->fillData();
+				$freelanceHunt->fillData();
+				$weblancer->fillData();
+				$fl->fillData();
+				$freelanceRu->fillData();
+				$freelansim->fillData();
+				$pchel->fillData();
 
-			$guru          = new GuruController();
-			$guru->fillData();
+				$guru = new GuruController();
+				$guru->fillData();
+			} elseif ($params === '5') {
+				$upwork = new UpworkController();
+				$upwork->fillData();
+			}
 
-			$upwork = new UpworkController();
-			$upwork->fillData();
 		} catch (\Exception $e) {
 
 			dump($e->getMessage());
