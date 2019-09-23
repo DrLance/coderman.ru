@@ -17,7 +17,7 @@ class StatContainer extends React.Component {
     return (
       <div className="hidden md:flex md:pl-4 ">
         <div className="shadow pl-4 px-3 py-2 rounded w-full">
-          <p className="uppercase text-center text-sm font-bold text-heading">статистика за сутки</p>
+          <p className="uppercase text-center text-sm font-bold text-heading">статистика <br />за текущий день</p>
           <ul className="mt-3 flex flex-wrap">
             {data.map((item,index) => {
               const imgUrl = 'storage/type/' + item.img_url;
