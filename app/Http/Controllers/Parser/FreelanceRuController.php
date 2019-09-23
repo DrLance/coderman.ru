@@ -16,7 +16,7 @@ class FreelanceRuController extends Controller {
 
   public function fillData() : void {
 	  $prefix = 'https://freelance.ru';
-	  $link = $prefix. '/vacancy/';
+	  $link = $prefix. '/projects/filter/';
 
 	  $client = new Client();
 	  $res = $client->request('GET', $link, [

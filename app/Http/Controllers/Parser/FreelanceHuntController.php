@@ -18,47 +18,52 @@ class FreelanceHuntController extends Controller {
   private $type = 1;
 
   public function fillData() : void {
-    $link = 'https://freelancehunt.ru/projects?page=2';
-    $html = file_get_contents($link);
 
-    $crawler = new Crawler(null, $link);
-    $crawler->addHtmlContent($html,'UTF-8');
+	  $pages = 3;
 
-    $table =$crawler->filter('table > tbody')->children();
+	  for ($i = 1; $i <= $pages; $i++) {
 
-    foreach ($table as $item) {
-      $datePublished = $item->getAttribute('data-published');
+		  $link = 'https://freelancehunt.ru/projects?page=' . $i;
+		  $html = file_get_contents($link);
 
-      $titleUrl = new Crawler($item);
+		  $crawler = new Crawler(null, $link);
+		  $crawler->addHtmlContent($html, 'UTF-8');
 
-      $aTitle = $titleUrl->filter('a');
+		  $table = $crawler->filter('table > tbody')->children();
 
-      $title = $aTitle->text();
+		  foreach ($table as $item) {
+			  $datePublished = $item->getAttribute('data-published');
 
-      $url = $aTitle->attr('href');
+			  $titleUrl = new Crawler($item);
 
-      $description = $aTitle->attr('title');
+			  $aTitle = $titleUrl->filter('a');
 
-      $categoryName = $titleUrl
-	      ->filter('div > small')
-	      ->getNode(0) ? $titleUrl->filter('div > small')->text() : '';
+			  $title = $aTitle->text();
 
-      $parsedData = ParsedData::whereUrl($url)->get();
+			  $url = $aTitle->attr('href');
 
-      if(!$parsedData->count()) {
-        $nparsedData = new ParsedData();
+			  $description = $aTitle->attr('title');
 
-        $nparsedData->title = $title;
-        $nparsedData->url = $url;
-        $nparsedData->description = $description;
-        $nparsedData->date_published_at = Carbon::createFromTimestamp($datePublished);
-        $nparsedData->category_name = $categoryName;
-        $nparsedData->type_id = $this->type;
-        $nparsedData->save();
-      }
+			  $categoryName = $titleUrl
+				  ->filter('div > small')
+				  ->getNode(0) ? $titleUrl->filter('div > small')->text() : '';
 
-    }
+			  $parsedData = ParsedData::whereUrl($url)->get();
+
+			  if ( ! $parsedData->count()) {
+				  $nparsedData = new ParsedData();
+
+				  $nparsedData->title             = $title;
+				  $nparsedData->url               = $url;
+				  $nparsedData->description       = $description;
+				  $nparsedData->date_published_at = Carbon::createFromTimestamp($datePublished);
+				  $nparsedData->category_name     = $categoryName;
+				  $nparsedData->type_id           = $this->type;
+				  $nparsedData->save();
+			  }
+
+		  }
+	  }
   }
-
 
 }
