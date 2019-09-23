@@ -45,7 +45,6 @@ class ParseData extends Command {
 	 */
 	public function handle() {
 		$params = $this->argument('params');
-		dump($params);
 
 		try {
 			if($params === '1') {

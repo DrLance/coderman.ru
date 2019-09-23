@@ -101,7 +101,7 @@ class TableContainer extends React.Component {
 
     return (
       <React.Fragment>
-        <div className="md:w-9/12 shadow">
+        <div className="md:w-9/12 shadow order-1">
           <table className="table-auto w-full">
             <thead>
             <tr>
