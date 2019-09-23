@@ -42,6 +42,7 @@ class MonitoringController extends Controller {
 
 			foreach ($filter['keywords']  as $keyword) {
 				$parsedData->orWhere('title', 'like', '%' . $keyword . '%');
+				$parsedData->orWhere('description', 'like', '%' . $keyword . '%');
 			}
 
 		}

@@ -16,48 +16,52 @@ class UpworkController extends Controller {
 
   public function fillData() : void {
 
-  	$chromeVer = mt_rand(50,75);
+	  $pages = 2;
 
-	  $context = stream_context_create(
-		  array(
-			  'http' => array(
-				  'user_agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/'.$chromeVer.'.0.2661.102 Safari/537.36',
-			  ),
-		  ));
+	  for ($i = 1; $i <= $pages; $i++) {
+		  $chromeVer = mt_rand(50, 75);
 
-	  $prefix = 'https://www.upwork.com';
-	  $link = $prefix. '/search/jobs/?page=1&per_page=20';
+		  $context = stream_context_create(
+			  array(
+				  'http' => array(
+					  'user_agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/' . $chromeVer . '.0.2661.102 Safari/537.36',
+				  ),
+			  ));
 
-	  $html = file_get_contents($link,false,$context);
+		  $prefix = 'https://www.upwork.com';
+		  $link   = $prefix . '/search/jobs/?page=' . $i;
 
-    $crawler = new Crawler($html);
-    $projects =$crawler->filter('div.js-search-results')->children();
+		  $html = file_get_contents($link, false, $context);
 
-    foreach ($projects as $item) {
-      $domItem = new Crawler($item);
-	    $title = $domItem->filter('a.job-title-link');
-	    if(!$title->count())
-	    	continue;
+		  $crawler  = new Crawler($html);
+		  $projects = $crawler->filter('div.js-search-results')->children();
 
-      $title = $title->text();
-      $url = $prefix.$domItem->filter('a.job-title-link')->attr('href');
-      $description = $domItem->filter('div.description span.js-description-text')->text();
+		  foreach ($projects as $item) {
+			  $domItem = new Crawler($item);
+			  $title   = $domItem->filter('a.job-title-link');
+			  if ( ! $title->count()) {
+				  continue;
+			  }
 
-	    $parsedData = ParsedData::whereUrl($url)->get();
+			  $title       = $title->text();
+			  $url         = $prefix . $domItem->filter('a.job-title-link')->attr('href');
+			  $description = $domItem->filter('div.description span.js-description-text')->text();
 
-	    if(!$parsedData->count()) {
-		    $nparsedData = new ParsedData();
+			  $parsedData = ParsedData::whereUrl($url)->get();
 
-		    $nparsedData->title = html_entity_decode($title);
-		    $nparsedData->url = $url;
-		    $nparsedData->description = $description;
-		    $nparsedData->date_published_at = Carbon::now();
-		    $nparsedData->category_name = 'No category';
-		    $nparsedData->type_id = $this->type;
-		    $nparsedData->save();
-	    }
+			  if ( ! $parsedData->count()) {
+				  $nparsedData = new ParsedData();
 
-    }
+				  $nparsedData->title             = html_entity_decode($title);
+				  $nparsedData->url               = $url;
+				  $nparsedData->description       = $description;
+				  $nparsedData->date_published_at = Carbon::now();
+				  $nparsedData->category_name     = 'No category';
+				  $nparsedData->type_id           = $this->type;
+				  $nparsedData->save();
+			  }
+
+		  }
+	  }
   }
-
 }
