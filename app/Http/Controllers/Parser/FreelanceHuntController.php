@@ -18,7 +18,7 @@ class FreelanceHuntController extends Controller {
   private $type = 1;
 
   public function fillData() : void {
-    $link = 'https://freelancehunt.ru/projects';
+    $link = 'https://freelancehunt.ru/projects?page=2';
     $html = file_get_contents($link);
 
     $crawler = new Crawler(null, $link);
