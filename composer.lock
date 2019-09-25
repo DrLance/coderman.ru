@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa8838ed84175396f685f1d5f561d694",
+    "content-hash": "a0cd073af5b27781862918e19ddc509a",
     "packages": [
         {
             "name": "backpack/crud",
-            "version": "v4.x-dev",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "af3bc615b0971f8687025d839e37654ce16ce8cc"
+                "reference": "0a71ac74489312835948a250ab6db709fbbb9451"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/af3bc615b0971f8687025d839e37654ce16ce8cc",
-                "reference": "af3bc615b0971f8687025d839e37654ce16ce8cc",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/0a71ac74489312835948a250ab6db709fbbb9451",
+                "reference": "0a71ac74489312835948a250ab6db709fbbb9451",
                 "shasum": ""
             },
             "require": {
@@ -91,24 +91,24 @@
                 "read",
                 "update"
             ],
-            "time": "2019-09-22T08:41:41+00:00"
+            "time": "2019-09-24T15:14:07+00:00"
         },
         {
             "name": "backpack/pagemanager",
-            "version": "v4.x-dev",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PageManager.git",
-                "reference": "0c16817d34d79b68eeab5115b68c781f2b5a2aab"
+                "reference": "fb9bda43407060df97b945e227ca9749261dc902"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PageManager/zipball/0c16817d34d79b68eeab5115b68c781f2b5a2aab",
-                "reference": "0c16817d34d79b68eeab5115b68c781f2b5a2aab",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PageManager/zipball/fb9bda43407060df97b945e227ca9749261dc902",
+                "reference": "fb9bda43407060df97b945e227ca9749261dc902",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.0",
+                "backpack/crud": "^4.0.0",
                 "cviebrock/eloquent-sluggable": "^6.0"
             },
             "require-dev": {
@@ -159,24 +159,24 @@
                 "presentation website",
                 "wordpress"
             ],
-            "time": "2019-09-12T15:28:12+00:00"
+            "time": "2019-09-24T15:40:30+00:00"
         },
         {
             "name": "backpack/permissionmanager",
-            "version": "v4.x-dev",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PermissionManager.git",
-                "reference": "65a77753517021bfc238105b843e2e8b8e066bd6"
+                "reference": "b790dbba866000e6e6485be6e51436d7dec8f680"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/65a77753517021bfc238105b843e2e8b8e066bd6",
-                "reference": "65a77753517021bfc238105b843e2e8b8e066bd6",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/b790dbba866000e6e6485be6e51436d7dec8f680",
+                "reference": "b790dbba866000e6e6485be6e51436d7dec8f680",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.0",
+                "backpack/crud": "^4.0.0",
                 "spatie/laravel-permission": "^3.0"
             },
             "require-dev": {
@@ -234,7 +234,7 @@
                 "updivision",
                 "users roles admin"
             ],
-            "time": "2019-09-17T08:12:09+00:00"
+            "time": "2019-09-24T15:22:06+00:00"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -1544,16 +1544,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v6.0.3",
+            "version": "v6.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "56789e9dec750e0fbe8e9e6ae90a01a4e6887902"
+                "reference": "372e0add8a58e0e3deb78f87cbb2dc40d3e0ff08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/56789e9dec750e0fbe8e9e6ae90a01a4e6887902",
-                "reference": "56789e9dec750e0fbe8e9e6ae90a01a4e6887902",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/372e0add8a58e0e3deb78f87cbb2dc40d3e0ff08",
+                "reference": "372e0add8a58e0e3deb78f87cbb2dc40d3e0ff08",
                 "shasum": ""
             },
             "require": {
@@ -1685,7 +1685,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-09-10T18:46:24+00:00"
+            "time": "2019-09-24T13:40:36+00:00"
         },
         {
             "name": "laravel/helpers",
@@ -4569,16 +4569,16 @@
         },
         {
             "name": "venturecraft/revisionable",
-            "version": "1.31.1",
+            "version": "1.32.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/VentureCraft/revisionable.git",
-                "reference": "e5951803d8349eb497bbb78940babd6a0ae0f8b2"
+                "reference": "4e288ba15f82a5614cf10bc18698cc8a8f374498"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/VentureCraft/revisionable/zipball/e5951803d8349eb497bbb78940babd6a0ae0f8b2",
-                "reference": "e5951803d8349eb497bbb78940babd6a0ae0f8b2",
+                "url": "https://api.github.com/repos/VentureCraft/revisionable/zipball/4e288ba15f82a5614cf10bc18698cc8a8f374498",
+                "reference": "4e288ba15f82a5614cf10bc18698cc8a8f374498",
                 "shasum": ""
             },
             "require": {
@@ -4618,7 +4618,7 @@
                 "model",
                 "revision"
             ],
-            "time": "2019-09-04T05:30:44+00:00"
+            "time": "2019-09-23T21:20:15+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -6539,24 +6539,9 @@
             "time": "2019-08-24T08:43:50+00:00"
         }
     ],
-    "aliases": [
-        {
-            "alias": "4.0.0",
-            "alias_normalized": "4.0.0.0",
-            "version": "4.9999999.9999999.9999999-dev",
-            "package": "backpack/crud"
-        },
-        {
-            "alias": "2.0.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "4.9999999.9999999.9999999-dev",
-            "package": "backpack/pagemanager"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "backpack/crud": 20,
-        "backpack/pagemanager": 20,
         "laracasts/generators": 20
     },
     "prefer-stable": true,
