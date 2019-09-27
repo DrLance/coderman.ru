@@ -9,6 +9,7 @@ use App\Models\Type;
 use Backpack\PageManager\app\Models\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App;
 
 class HomeController extends Controller {
 
@@ -38,6 +39,14 @@ class HomeController extends Controller {
 
 		return view('pages.about_us', ['page' => $page->withFakes()]);
 	}
+
+	public function lang($locale)
+	{
+		App::setLocale($locale);
+		session()->put('locale', $locale);
+		return redirect()->back();
+	}
+
 
 	public function test(Request $request) {
 

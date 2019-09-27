@@ -18,8 +18,7 @@ Route::get('/test','HomeController@test')->name('test');
 Route::get('/monitoring', 'Pages\MonitoringController@index')->name('monitoring');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/stat', 'Pages\StatController@index')->name('stat');
-
-
+Route::get('/lang/{locale}', 'HomeController@lang')->name('lang');
 
 Route::get('/sitemap', function() {
 
@@ -30,9 +29,11 @@ Route::get('/sitemap', function() {
 	$pages = Page::all();
 
 	foreach ($pages as $page) {
-		$sitemap->add(route($page->slug), '2012-08-25T20:10:00+02:00', '1.0', 'daily');
+		$sitemap->add(route($page->slug), \Carbon\Carbon::now(), '1.0', 'daily');
 	}
 
+	$sitemap->add(route('lang',['locale' => 'ru']), \Carbon\Carbon::now(), '1.0','daily' );
+	$sitemap->add(route('lang', ['locale' => 'en']), \Carbon\Carbon::now(),'1.0','daily');
 
 
 	// show your sitemap (options: 'xml' (default), 'html', 'txt', 'ror-rss', 'ror-rdf')
