@@ -3,188 +3,203 @@
 
 namespace App\Http\Controllers\Admin;
 
-
 use App\Models\Type;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
-use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
-class TypeAdminController extends CrudController {
-	use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-	use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-	use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+class TypeAdminController extends CrudController
+{
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
-	use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation { store as traitStore; }
-	use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation { update as traitUpdate; }
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation {
+        store as traitStore;
+    }
+    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation {
+        update as traitUpdate;
+    }
 
-	public function setup() {
-		$this->crud->setModel("App\Models\Type");
-		$this->crud->setRoute(config('backpack.base.route_prefix') . "/type");
-		$this->crud->setEntityNameStrings('Type', 'Types');
-		$this->crud->orderBy('id');
+    public function setup()
+    {
+        $this->crud->setModel("App\Models\Type");
+        $this->crud->setRoute(config('backpack.base.route_prefix') . "/type");
+        $this->crud->setEntityNameStrings('Type', 'Types');
+        $this->crud->orderBy('id');
 
-	}
+    }
 
-	protected function setupListOperation() {
+    protected function setupListOperation()
+    {
 
-		$this->crud->addColumn([
-			'name'  => 'id',
-			'label' => 'ID',
-		]);
+        $this->crud->addColumn([
+          'name'  => 'id',
+          'label' => 'ID',
+        ]);
 
-		$this->crud->addColumn([
-			'name'   => 'img_url',
-			'label'  => 'Logo',
-			'type'   => 'image',
-			'disk'   => 'public',
-			'prefix' => '/type/',
-		]);
+        $this->crud->addColumn([
+          'name'   => 'img_url',
+          'label'  => 'Logo',
+          'type'   => 'image',
+          'disk'   => 'public',
+          'prefix' => '/type/',
+        ]);
 
-		$this->crud->addColumn([
-			'name'   => 'name',
-			'labele' => 'Name',
-		]);
+        $this->crud->addColumn([
+          'name'   => 'name',
+          'labele' => 'Name',
+        ]);
 
-		$this->crud->addColumn([
-			'name'   => 'lang',
-			'labele' => 'Lang',
-		]);
+        $this->crud->addColumn([
+          'name'   => 'lang',
+          'labele' => 'Lang',
+        ]);
 
-	}
+    }
 
 
-	protected function setupCreateOperation() {
+    protected function setupCreateOperation()
+    {
 
-		$this->crud->addField([
-			'name'  => 'name',
-			'type'  => 'text',
-			'label' => "Type Name",
-		]);
-		$this->crud->addField([
-			'name'   => 'img_url',
-			'label'  => 'Image',
-			'type'   => 'image',
-			'upload' => true,
-			'disk'   => 'public',
-			'prefix' => '/type/',
-		]);
+        $this->crud->addField([
+          'name'  => 'name',
+          'type'  => 'text',
+          'label' => "Type Name",
+        ]);
+        $this->crud->addField([
+          'name'   => 'img_url',
+          'label'  => 'Image',
+          'type'   => 'image',
+          'upload' => true,
+          'disk'   => 'public',
+          'prefix' => '/type/',
+        ]);
 
-		$this->crud->addField([
-			'name'  => 'lang',
-			'type'  => 'text',
-			'label' => "Language",
-		]);
-	}
+        $this->crud->addField([
+          'name'  => 'lang',
+          'type'  => 'text',
+          'label' => "Language",
+        ]);
+    }
 
-	protected function setupUpdateOperation() {
-		$this->setupCreateOperation();
-	}
+    protected function setupUpdateOperation()
+    {
+        $this->setupCreateOperation();
+    }
 
-	public function store(Request $request) {
-		$fields = array_keys(request()->all());
+    public function store(Request $request)
+    {
+        $fields = array_keys(request()->all());
 
-		foreach ($fields as $field) {
-			if ($field === 'img_url') {
-				$request[$field] = $this->newImage($request, $field, 'extras');
-			}
-		}
+        foreach ($fields as $field) {
+            if ($field === 'img_url') {
+                $request[$field] = $this->newImage($request, $field, 'extras');
+            }
+        }
 
-		return $this->traitStore();
-	}
+        return $this->traitStore();
+    }
 
-	public function update(Request $request) {
+    public function update(Request $request)
+    {
 
-		$fields = array_keys(request()->all());
-		foreach ($fields as $field) {
-			if (\Str::endsWith($field, 'img_url')) {
-				$request[$field] = $this->processImage($request, $field, 'extras');
-			}
-		}
+        $fields = array_keys(request()->all());
+        foreach ($fields as $field) {
+            if (\Str::endsWith($field, 'img_url')) {
+                $request[$field] = $this->processImage($request, $field, 'extras');
+            }
+        }
 
-		return $this->traitUpdate();
-	}
+        return $this->traitUpdate();
+    }
 
-	/**
-	 * Stores the actual image to disk and returns the stored filename. Deletes previous file from disk, if any.
-	 *
-	 * @param $request
-	 * @param $attribute_name
-	 * @param null $store_in If not null, image is stored in a fake field
-	 *
-	 * @return null|string
-	 */
-	private function newImage($request, $attribute_name, $store_in = null) {
-		$value            = $request[$attribute_name];
-		$type             = 'pages';
-		$destination_path = 'type';
+    /**
+     * Stores the actual image to disk and returns the stored filename. Deletes previous file from disk, if any.
+     *
+     * @param $request
+     * @param $attribute_name
+     * @param null $store_in If not null, image is stored in a fake field
+     *
+     * @return null|string
+     */
+    private function newImage($request, $attribute_name, $store_in = null)
+    {
+        $value            = $request[$attribute_name];
+        $type             = 'pages';
+        $destination_path = 'type';
 
-		// if a new image was loaded
-		if (\Str::startsWith($value, 'data:image')) {
+        // if a new image was loaded
+        if (\Str::startsWith($value, 'data:image')) {
 
-			$image = \Image::make($value);
-			switch ($image->mime()) {
-				case 'image/png':
-					$extension = '.png';
-					break;
-				default:
-					$extension = '.jpg';
-			}
-			$filename = $type . '_' . $attribute_name . '_' . md5($value . time()) . $extension;
-			Storage::disk('public')->put($destination_path . '/' . $filename, (string)$image->stream());
-			$value = $filename;
-		}
+            $image = \Image::make($value);
+            switch ($image->mime()) {
+                case 'image/png':
+                    $extension = '.png';
+                    break;
+                default:
+                    $extension = '.jpg';
+            }
+            $filename = $type . '_' . $attribute_name . '_' . md5($value . time()) . $extension;
+            Storage::disk('public')->put($destination_path . '/' . $filename, (string)$image->stream());
+            $value = $filename;
+        }
 
-		return basename($value);
-	}
+        activity()->log('Add new image');
 
-	private function processImage($request, $attribute_name, $store_in = null) {
-		$value      = $request[$attribute_name];
-		$prev_value = $this->crud->getCurrentEntry()->{$attribute_name};
-		$type       = 'pages';
+        return basename($value);
+    }
 
-		$destination_path = 'type';
+    private function processImage($request, $attribute_name, $store_in = null)
+    {
+        $value      = $request[$attribute_name];
+        $prev_value = $this->crud->getCurrentEntry()->{$attribute_name};
+        $type       = 'pages';
 
-		// if the image was erased
-		if ($value == null) {
-			$this->deleteImage($prev_value);
-			$value = null;
-		}
+        $destination_path = 'type';
 
-		// if a new image was loaded
-		if (\Str::startsWith($value, 'data:image')) {
-			$this->deleteImage($prev_value);
-			$image = \Image::make($value);
+        // if the image was erased
+        if ($value == null) {
+            $this->deleteImage($prev_value);
+            $value = null;
+        }
 
-			switch ($image->mime()) {
-				case 'image/png':
-					$extension = '.png';
-					break;
-				default:
-					$extension = '.jpg';
-			}
-			$filename = $type . '_' . $attribute_name . '_' . md5($value . time()) . $extension;
-			Storage::disk('public')->put($destination_path . '/' . $filename, (string)$image->stream());
-			$value = $filename;
-		}
+        // if a new image was loaded
+        if (\Str::startsWith($value, 'data:image')) {
+            $this->deleteImage($prev_value);
+            $image = \Image::make($value);
 
-		return basename($value);
-	}
+            switch ($image->mime()) {
+                case 'image/png':
+                    $extension = '.png';
+                    break;
+                default:
+                    $extension = '.jpg';
+            }
+            $filename = $type . '_' . $attribute_name . '_' . md5($value . time()) . $extension;
+            Storage::disk('public')->put($destination_path . '/' . $filename, (string)$image->stream());
+            $value = $filename;
+        }
 
-	private function deleteImage($value) {
-		$type = 'type';
-		if ( ! empty($value)) {
-			$file      = basename($value);
-			$file_path = $type . '/' . $file;
+        return basename($value);
+    }
 
-			Storage::disk('public')->delete($file_path);
-		}
-	}
+    private function deleteImage($value)
+    {
+        $type = 'type';
+        if ( ! empty($value)) {
+            $file      = basename($value);
+            $file_path = $type . '/' . $file;
 
-	public function getTypes() {
-		$types = Type::all();
+            Storage::disk('public')->delete($file_path);
+        }
+    }
 
-		return $types->toJson();
-	}
+    public function getTypes()
+    {
+        $types = Type::all();
+
+        return $types->toJson();
+    }
 
 }
