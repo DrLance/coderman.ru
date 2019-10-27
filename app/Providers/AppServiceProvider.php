@@ -29,6 +29,5 @@ class AppServiceProvider extends ServiceProvider
     {
         ParsedData::observe(ParsedDataObserver::class);
         Paginator::defaultView('components.paginate');
-        Schema::defaultStringLength(191);
     }
 }
