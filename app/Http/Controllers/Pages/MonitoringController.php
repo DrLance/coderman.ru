@@ -2,54 +2,70 @@
 
 
 namespace App\Http\Controllers\Pages;
+
 use App\Models\ParsedData;
 use App\Http\Controllers\Controller;
 use Backpack\PageManager\app\Models\Page;
 use Illuminate\Http\Request;
 
-class MonitoringController extends Controller {
+class MonitoringController extends Controller
+{
 
-	public $data;
+    public $data;
 
-	public function index() {
-		$page = Page::findBySlug('monitoring');
+    public function index()
+    {
+        $page = Page::findBySlug('monitoring');
 
-		if($page) {
-			$this->data['page'] = $page->withFakes();
+        if ($page) {
+            $this->data['page'] = $page->withFakes();
 
-			return view('pages.monitoring', $this->data);
-		}
+            return view('pages.monitoring', $this->data);
+        }
 
-		return view('pages.monitoring');
-	}
+        return view('pages.monitoring');
+    }
 
-	public function getData(Request $request) {
+    public function getData(Request $request)
+    {
 
-		$parsedData = ParsedData::query()->with('type');
+        $parsedData = ParsedData::query()->with('type');
+        $limit      = 50;
 
-		$filter = $request->input('filter');
+        $filter = $request->input('filter');
 
-		if ($filter) {
+        if (isset($filter['show'])) {
+            $limit = $filter['show'];
+        }
 
-			if($filter['selectedType'] != 0) {
-				$parsedData->whereTypeId($filter['selectedType']);
+        if ($filter) {
 
-/*				$parsedData->with(['type' => function ($query) use($filter) {
-					$query->where('id', '=', $filter['selectedType']);
+            if(isset($filter['keywords'])) {
 
-				}]);*/
-			}
+                foreach ($filter['keywords'] as $keyword) {
+                    $parsedData->orWhere('title', 'like', '%' . $keyword . '%');
+                    $parsedData->orWhere('description', 'like', '%' . $keyword . '%');
+                }
+            }
 
-			foreach ($filter['keywords']  as $keyword) {
-				$parsedData->orWhere('title', 'like', '%' . $keyword . '%');
-				$parsedData->orWhere('description', 'like', '%' . $keyword . '%');
-			}
 
-		}
+            if (isset($filter['selectedType']) && $filter['selectedType'] != 0) {
+                $parsedData->whereTypeId($filter['selectedType']);
 
-		$results = $parsedData->orderBy('created_at', 'DESC')->limit(50)->get();
+                /*				$parsedData->with(['type' => function ($query) use($filter) {
+                          $query->where('id', '=', $filter['selectedType']);
 
-		return response()->json($results);
-	}
+                        }]);*/
+            }
+        }
+
+        $results = $parsedData
+          ->orderBy('created_at', 'DESC')
+          ->orderBy('id', 'DESC')
+          ->limit($limit)
+          ->get();
+
+        return response()->json($results);
+    }
 
 }

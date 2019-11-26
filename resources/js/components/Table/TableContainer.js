@@ -6,16 +6,21 @@ import FilterContainer from "../Filter/FilterContainer";
 class TableContainer extends React.Component {
 
   constructor (props) {
-    super(props);
+    super(props)
+
+    const limit = 2;
 
     let localFilter = localStorage.getItem('coderman_filter');
-    let oldFilter = {};
+    let oldFilter = {
+      'show': limit
+    };
 
-    if(localFilter) {
+    if (localFilter) {
       localFilter = JSON.parse(localFilter);
       oldFilter = {
-        'keywords' : localFilter.keywords,
-        'selectedType': localFilter.selectedType
+        'keywords': localFilter.keywords,
+        'selectedType': localFilter.selectedType,
+        'show': limit
       };
 
     }
@@ -63,7 +68,12 @@ class TableContainer extends React.Component {
   }
 
   changeFilter (params) {
-    this.setState({ filter: params }, () => {
+    let filterNew = params;
+    const { filter } = this.state;
+
+    filterNew.show = filter.show;
+
+    this.setState({ filter: filterNew }, () => {
       this.syncData();
       this.saveLocalStorage();
     });
@@ -82,9 +92,20 @@ class TableContainer extends React.Component {
   }
 
   saveLocalStorage = () => {
-    const {filter: {selectedType, keywords}} = this.state;
-    const filterObj = {keywords, selectedType};
+    const { filter: { selectedType, keywords } } = this.state;
+    const filterObj = { keywords, selectedType };
     localStorage.setItem('coderman_filter', JSON.stringify(filterObj));
+  };
+
+  onLoadMore = () => {
+    let { filter } = this.state;
+
+    filter.show += 10;
+
+    this.setState(filter, () => {
+      this.syncData();
+    })
+
   };
 
   render () {
@@ -101,8 +122,8 @@ class TableContainer extends React.Component {
 
     return (
       <React.Fragment>
-        <div className="md:w-9/12 shadow order-1">
-          <table className="table-auto w-full">
+        <div className="md:w-9/12 order-1 flex flex-col">
+          <table className="table-auto w-full shadow">
             <thead>
             <tr>
               {tableHeaders.map((item, index) => {
@@ -151,6 +172,11 @@ class TableContainer extends React.Component {
 
             </tbody>
           </table>
+          <button
+            onClick={this.onLoadMore}
+            className="text-heading self-center mt-5 py-2 px-4 shadow rounded border border-gray-400 hover:bg-gray-100">
+            Load More
+          </button>
         </div>
         <FilterContainer onChangeFilter={this.changeFilter}/>
       </React.Fragment>

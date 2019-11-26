@@ -96,7 +96,7 @@ class FilterContainer extends React.Component {
                 { types.map( ( item, index ) => {
 
                   return (
-                    <option key={ index + '_opt' } value={ item.id } >{ item.name }</option>
+                    <option key={ item.id + '_opt' } value={ item.id } >{ item.name }</option>
                   )
                 } ) }
               </select>

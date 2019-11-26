@@ -22,7 +22,7 @@ class StatContainer extends React.Component {
             {data.map((item,index) => {
               const imgUrl = 'storage/type/' + item.img_url;
               return (
-                <li key={item.img_url} className="flex flex-col rounded border border-border m-1 items-center p-2">
+                <li key={index + '_url'} className="flex flex-col rounded border border-border m-1 items-center p-2">
                   <img className="h-4 " src={imgUrl}   alt=""/>
                   <span className="font-bold text-content">{item.project_count}</span>
                 </li>
