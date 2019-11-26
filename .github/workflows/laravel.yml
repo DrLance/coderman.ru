@@ -6,14 +6,15 @@ jobs:
   laravel-tests:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: Install Dependencies
-      run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
-    - name: Install nodejs
-      run: sudo apt-get update && sudo apt-get install -y nodejs npm ssh
-    - name: JS Prod
-      run: npm install && npm run prod
-    - name: Upload to Prod
-      run: scp -r $(ls | grep -v -e runtime -e tests -e vagrant ) root@coderman.ru:/var/www/coderman.ru/data/www/coderman.ru
-    - name: Update rights on server
-      run: ssh -t root@coderman.ru "chown -R coderman.ru:coderman.ru /var/www/coderman.ru/data/www/coderman.ru ; bash"
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: Install Dependencies
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+      - name: JS Prod
+        run: npm install && npm run prod
+      - name: Upload to Prod
+        run: scp -r $(ls | grep -v -e runtime -e tests -e vagrant ) root@coderman.ru:/var/www/coderman.ru/data/www/coderman.ru
+      - name: Update rights on server
+        run: ssh -t root@coderman.ru "chown -R coderman.ru:coderman.ru /var/www/coderman.ru/data/www/coderman.ru ; bash"
