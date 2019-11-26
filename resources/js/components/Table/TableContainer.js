@@ -8,7 +8,7 @@ class TableContainer extends React.Component {
   constructor (props) {
     super(props)
 
-    const limit = 2;
+    const limit = 25;
 
     let localFilter = localStorage.getItem('coderman_filter');
     let oldFilter = {

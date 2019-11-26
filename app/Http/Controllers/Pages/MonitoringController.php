@@ -30,7 +30,7 @@ class MonitoringController extends Controller
     {
 
         $parsedData = ParsedData::query()->with('type');
-        $limit      = 50;
+        $limit      = 25;
 
         $filter = $request->input('filter');
 
