@@ -48,12 +48,17 @@ class TypeAdminController extends CrudController
 
         $this->crud->addColumn([
           'name'   => 'name',
-          'labele' => 'Name',
+          'label' => 'Name',
         ]);
 
         $this->crud->addColumn([
           'name'   => 'lang',
-          'labele' => 'Lang',
+          'label' => 'Lang',
+        ]);
+
+        $this->crud->addColumn([
+          'name'   => 'script_id',
+          'label' => 'Parse Script ID',
         ]);
 
     }
@@ -61,6 +66,11 @@ class TypeAdminController extends CrudController
 
     protected function setupCreateOperation()
     {
+        $this->crud->addField([
+          'name'  => 'script_id',
+          "type" => "number",
+          'label' => 'Parse Script ID',
+        ]);
 
         $this->crud->addField([
           'name'  => 'name',
@@ -144,8 +154,6 @@ class TypeAdminController extends CrudController
             Storage::disk('public')->put($destination_path . '/' . $filename, (string)$image->stream());
             $value = $filename;
         }
-
-        activity()->log('Add new image');
 
         return basename($value);
     }
