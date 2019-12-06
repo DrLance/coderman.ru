@@ -56,14 +56,12 @@ class ParseData extends Command
                 $weblancer     = new WeblancerController();
                 $fl            = new FlController();
                 $freelanceRu   = new FreelanceRuController();
-                $freelansim    = new FreelansimController();
                 $pchel         = new PchelController();
 
                 $freelanceHunt->fillData();
                 $weblancer->fillData();
                 $fl->fillData();
                 $freelanceRu->fillData();
-                $freelansim->fillData();
                 $pchel->fillData();
 
                 $guru = new GuruController();

@@ -59,6 +59,8 @@ class MonitoringController extends Controller
             }
         }
 
+
+
         $results = $parsedData
           ->orderBy('created_at', 'DESC')
           ->orderBy('id', 'DESC')
