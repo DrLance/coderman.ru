@@ -2,7 +2,7 @@ action "Run deploy script" {
   uses = "maddox/actions/ssh@master"
   args = "/opt/deploy/run"
   secrets = [
-    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDnDvJ2wh69W46KfXXWU/eWuRxalgdcxt5ZMgzlzjc2NzRcIxUSklqs3phFsTCys3l2m2I9xbu4UYOd8TeW56BL9DvIDv89Er/z17TI1H/Wzoz7s9+Az5bwXimTssQmGlZb/HuoS1rLt1xeo4XV9uGa8lo7ozXRvvQPh6Yzb0r5JE9YF4O0Tv7J4YIDRIXpIYOGwrMptJrUXefspKIgKYBj/cONns5Z0qldjeKNMWThh1WueSCV1SHuC6R3iNbK9hHemYZitz2G1dVN9k0pspKXuEsqqhsjVmloM9RMpc0iouLLLXvYRjxmHAUOqFMLsBhuLzcazdqtRyQAnZgLHmjD megalance@gmail.com",
+    "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==",
     "185.104.248.212",
     "root"
   ]
