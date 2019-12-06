@@ -52,18 +52,6 @@ class ParseData extends Command
 
         try {
             if ($params === '1') {
-                $freelanceHunt = new FreelanceHuntController();
-                $weblancer     = new WeblancerController();
-                $fl            = new FlController();
-                $freelanceRu   = new FreelanceRuController();
-                $pchel         = new PchelController();
-
-                $freelanceHunt->fillData();
-                $weblancer->fillData();
-                $fl->fillData();
-                $freelanceRu->fillData();
-                $pchel->fillData();
-
                 $guru = new GuruController();
                 $guru->fillData();
             } elseif ($params === '5') {
