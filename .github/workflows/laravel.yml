@@ -7,14 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: ls -a via ssh
-        uses: garygrossgarten/github-action-ssh@release
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
         with:
-          command: ls -a
-          host: ${{ secrets.HOST }}
-          username: root
-          passphrase: ${{ secrets.PASS }}
-          privateKey: ${{ secrets.PRIVATE_KEY}}
+          host: "185.104.248.212"
+          username: "root"
+          key : ${{ secrets.PRIVATE_KEY }}
+          source: ".env"
+          target: "test"
       - uses: actions/setup-node@v1
         with:
           node-version: 10.x
