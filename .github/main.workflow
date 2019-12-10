@@ -3,7 +3,7 @@ action "Run deploy script" {
   args = "/opt/deploy/run"
   secrets = [
     "PRIVATE_KEY",
-    "HOST",
-    "USER"
+    "coderman.ru",
+    "root"
   ]
 }

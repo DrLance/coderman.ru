@@ -23,6 +23,10 @@ jobs:
         with:
           args: git pull
       - name: Upload to Prod
-        run: scp -r $(ls | grep -v -e runtime -e tests -e vagrant ) root@coderman.ru:/var/www/coderman.ru/data/www/coderman.ru
+        env:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          HOST: ${{ secrets.HOST }}
+          USER: ${{ secrets.USER }}
+        run: ssh -i PRIVATE_KEY -t root@coderman.ru "bash"
       - name: Update rights on server
         run: ssh -t root@coderman.ru "chown -R coderman.ru:coderman.ru /var/www/coderman.ru/data/www/coderman.ru ; bash"
