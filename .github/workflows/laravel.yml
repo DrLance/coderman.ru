@@ -10,16 +10,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 10.x
-      - name: multiple command
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
-          passphrase: ${{ secrets.PASS }}
-          key: ${{ secrets.MY }}
-          script: |
-            whoami
-            ls -al
       - name: Install Dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
       - name: JS Prod
