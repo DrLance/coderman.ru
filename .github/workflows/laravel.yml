@@ -13,8 +13,8 @@ jobs:
           host: "185.104.248.212"
           username: "root"
           key : ${{ secrets.PRIVATE_KEY }}
-          source: ".env"
-          target: "test"
+          source: "public"
+          target: "public"
       - uses: actions/setup-node@v1
         with:
           node-version: 10.x
