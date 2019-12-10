@@ -17,8 +17,6 @@ jobs:
       - name: Upload to Prod
         env:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-          HOST: ${{ secrets.HOST }}
-          USER: ${{ secrets.USER }}
-        run: ssh -i $PRIVATE_KEY -t root@coderman.ru "bash"
+        run: ssh -i $PRIVATE_KEY -t root@185.104.248.212 "bash"
       - name: Update rights on server
         run: ssh -t root@coderman.ru "chown -R coderman.ru:coderman.ru /var/www/coderman.ru/data/www/coderman.ru ; bash"
