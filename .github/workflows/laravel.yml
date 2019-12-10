@@ -7,6 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: ls -a via ssh
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: ls -a
+          host: ${{ secrets.HOST }}
+          username: root
+          passphrase: ${{ secrets.PASS }}
+          privateKey: ${{ secrets.PRIVATE_KEY}}
       - uses: actions/setup-node@v1
         with:
           node-version: 10.x
@@ -14,9 +22,6 @@ jobs:
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
       - name: JS Prod
         run: npm install && npm run prod
-      - name: Upload to Prod
-        env:
-          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         run: ssh -i $PRIVATE_KEY -t root@185.104.248.212 "bash"
       - name: Update rights on server
         run: ssh -t root@coderman.ru "chown -R coderman.ru:coderman.ru /var/www/coderman.ru/data/www/coderman.ru ; bash"
