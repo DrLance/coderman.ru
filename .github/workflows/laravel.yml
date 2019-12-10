@@ -15,7 +15,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
-          key: ${{ secrets.PRIVATE_KEY }}
+          key: ${{ secrets.MY }}
           script: |
             whoami
             ls -al
@@ -28,6 +28,6 @@ jobs:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
           HOST: ${{ secrets.HOST }}
           USER: ${{ secrets.USER }}
-        run: ssh -i PRIVATE_KEY -t root@coderman.ru "bash"
+        run: ssh -i $PRIVATE_KEY -t root@coderman.ru "bash"
       - name: Update rights on server
         run: ssh -t root@coderman.ru "chown -R coderman.ru:coderman.ru /var/www/coderman.ru/data/www/coderman.ru ; bash"
