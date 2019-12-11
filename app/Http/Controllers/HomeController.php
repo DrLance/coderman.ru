@@ -12,7 +12,7 @@ class HomeController extends Controller
 
     public $data;
 
-    public function index(Request $request)
+    public function index()
     {
 
         $types = Type::all();

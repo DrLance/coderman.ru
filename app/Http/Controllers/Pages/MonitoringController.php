@@ -28,8 +28,11 @@ class MonitoringController extends Controller
 
     public function getData(Request $request)
     {
+        $locale = $request->session()->get('locale', 'ru');
 
-        $parsedData = ParsedData::query()->with('type');
+        $parsedData = ParsedData::query()->with("type")->whereHas('type',function ($q) use($locale) {
+            $q->whereLang($locale);
+        });
         $limit      = 25;
 
         $filter = $request->input('filter');
@@ -52,10 +55,6 @@ class MonitoringController extends Controller
             if (isset($filter['selectedType']) && $filter['selectedType'] != 0) {
                 $parsedData->whereTypeId($filter['selectedType']);
 
-                /*				$parsedData->with(['type' => function ($query) use($filter) {
-                          $query->where('id', '=', $filter['selectedType']);
-
-                        }]);*/
             }
         }
 

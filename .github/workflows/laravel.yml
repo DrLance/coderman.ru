@@ -7,14 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: copy file via ssh password
-        uses: appleboy/scp-action@master
-        with:
-          host: "185.104.248.212"
-          username: "root"
-          key : ${{ secrets.PRIVATE_KEY }}
-          source: "public"
-          target: "public"
       - uses: actions/setup-node@v1
         with:
           node-version: 10.x
@@ -22,5 +14,3 @@ jobs:
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
       - name: JS Prod
         run: npm install && npm run prod
-      - name: Update rights on server
-        run: ssh -t root@coderman.ru "chown -R coderman.ru:coderman.ru /var/www/coderman.ru/data/www/coderman.ru ; bash"
