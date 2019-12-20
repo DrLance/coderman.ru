@@ -30,9 +30,7 @@ class MonitoringController extends Controller
     {
         $locale = $request->session()->get('locale', 'ru');
 
-        $parsedData = ParsedData::query()->with("type")->whereHas('type',function ($q) use($locale) {
-            $q->whereLang($locale);
-        });
+        $parsedData = ParsedData::query()->with("type");
         $limit      = 25;
 
         $filter = $request->input('filter');
@@ -42,23 +40,21 @@ class MonitoringController extends Controller
         }
 
         if ($filter) {
-
             if(isset($filter['keywords'])) {
-
                 foreach ($filter['keywords'] as $keyword) {
-                    $parsedData->orWhere('title', 'like', '%' . $keyword . '%');
-                    $parsedData->orWhere('description', 'like', '%' . $keyword . '%');
+                    $parsedData->orWhere('title', '~',  $keyword );
+                    $parsedData->orWhere('description', '~',  $keyword);
                 }
             }
 
-
             if (isset($filter['selectedType']) && $filter['selectedType'] != 0) {
                 $parsedData->whereTypeId($filter['selectedType']);
-
             }
         }
 
-
+        $parsedData->whereHas('type',function ($q) use($locale) {
+            $q->whereLang($locale);
+        });
 
         $results = $parsedData
           ->orderBy('created_at', 'DESC')

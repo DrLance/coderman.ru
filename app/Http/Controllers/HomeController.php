@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ParsedData;
 use App\Models\Type;
 use Backpack\PageManager\app\Models\Page;
 use Illuminate\Http\Request;
@@ -24,6 +25,11 @@ class HomeController extends Controller
         if ($page) {
             $this->data['page'] = $page->withFakes();
         }
+
+        $this->data['projects'] = ParsedData::with("type")->orderBy('created_at', 'DESC')
+                                               ->orderBy('id', 'DESC')
+                                               ->limit(15)
+                                               ->get();
 
         return view('welcome', $this->data);
     }
