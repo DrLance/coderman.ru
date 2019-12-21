@@ -55,7 +55,7 @@
     <div class="flex flex-col justify-center container-main md:mx-auto mt-5 flex-wrap md:w-1/3">
       @foreach($projects as $project)
         <a href="{{$project->url}}" class="shadow border border-border rounded px-1 py-1 flex items-center flex-row mt-1">
-          <img class="py-1 w-5 pr-1" src="{{asset('/storage/type') . '/' . $project['type']->img_url}}" alt="{{$project['type']->name}}">
+          <img class="w-4 mx-2" src="{{asset('/storage/type') . '/' . $project['type']->img_url}}" alt="{{$project['type']->name}}">
           <p class="text-center text-content">{{$project->title}}</p>
         </a>
       @endforeach
