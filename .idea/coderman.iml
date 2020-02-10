@@ -27,7 +27,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/dragonmantank/cron-expression" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/egulias/email-validator" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/erusev/parsedown" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/fideloper/proxy" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/filp/whoops" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/fzaninotto/faker" />
@@ -45,6 +44,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/slack-notification-channel" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/tinker" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravelium/sitemap" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/commonmark" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/commonmark-ext-table" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem-cached-adapter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mockery/mockery" />

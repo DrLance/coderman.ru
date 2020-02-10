@@ -29,7 +29,12 @@ Route::get('/sitemap', function() {
 	$pages = Page::all();
 
 	foreach ($pages as $page) {
-		$sitemap->add(route($page->slug), \Carbon\Carbon::now(), '1.0', 'daily');
+	  if ($page->type) {
+	      $path = config('app.url') . '/' . $page->type . '/' . $page->slug;
+        $sitemap->add( $path, \Carbon\Carbon::now(), '1.0', 'daily');
+    } else {
+        $sitemap->add(route($page->slug), \Carbon\Carbon::now(), '1.0', 'daily');
+    }
 	}
 
 	$sitemap->add(route('lang',['locale' => 'ru']), \Carbon\Carbon::now(), '1.0','daily' );
