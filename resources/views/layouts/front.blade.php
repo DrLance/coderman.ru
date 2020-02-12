@@ -46,6 +46,7 @@
         f.parentNode.insertBefore(j, f);
       })(window, document, 'script', 'dataLayer', 'GTM-NW7B54D');</script>
     <!-- End Google Tag Manager -->
+    <script data-ad-client="ca-pub-9000638518102810" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   @endif
 </head>
 <body>
