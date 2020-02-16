@@ -50,7 +50,7 @@
     <h2 class="text-heading text-lg md:text-xl uppercase text-center font-bold">{{trans('welcome.last_articles')}}</h2>
     <div class="flex flex-col justify-center mt-5 flex-wrap md:w-1/3 container-main md:mx-auto ">
       @foreach($articles as $article)
-        <a class="shadow border border-border rounded px-1 py-1 flex items-center flex-row mt-1" href="{{config('app.url')}}/articles/{{$article->slug}}">
+        <a class="shadow border border-border rounded px-1 py-1 flex items-center flex-row mt-1" href="{{config('app.url')}}/articles/{{$article->slug}}" target="_blank">
           <p class="text-left text-content">{{$article->title}}</p>
         </a>
         @endforeach
@@ -60,7 +60,7 @@
     <h2 class="text-heading text-lg md:text-xl uppercase text-center font-bold">{{trans('welcome.last_projects')}}</h2>
     <div class="flex flex-col justify-center mt-5 flex-wrap md:w-1/3 container-main md:mx-auto ">
       @foreach($projects as $project)
-        <a href="{{$project->url}}" class="shadow border border-border rounded px-1 py-1 flex items-center flex-row mt-1" rel="nofollow">
+        <a href="{{$project->url}}" class="shadow border border-border rounded px-1 py-1 flex items-center flex-row mt-1" rel="nofollow" target="_blank">
           <img class="w-4 mx-2" src="{{asset('/storage/type') . '/' . $project['type']->img_url}}" alt="{{$project['type']->name}}">
           <p class="text-left text-content">{{$project->title}}</p>
         </a>
