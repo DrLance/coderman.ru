@@ -57,7 +57,7 @@ trait PageTemplates
           'type'        => 'tinymce',
           'placeholder' => trans('backpack::pagemanager.content_placeholder'),
           'options'     => [
-            'plugins'  => 'image,imagetools,link,media,anchor,pagebreak ',
+            'plugins' => 'image,imagetools,link,media,anchor,pagebreak ',
           ],
         ]);
     }
@@ -100,18 +100,18 @@ trait PageTemplates
         ]);
         $this->crud->addField(
           [   // select_from_array
-            'name' => 'type',
-            'label' => "Type",
-            'type' => 'select_from_array',
-            'options' => ['news' => 'News', 'articles' => 'Articles'],
+            'name'        => 'type',
+            'label'       => "Type",
+            'type'        => 'select_from_array',
+            'options'     => ['news' => 'News', 'articles' => 'Articles'],
             'allows_null' => true,
           ]
         );
         $this->crud->addField(
           [   // select_from_array
-            'name' => 'excerpt',
+            'name'  => 'excerpt',
             'label' => "excerpt",
-            'type' => 'textarea',
+            'type'  => 'textarea',
           ]
         );
         $this->crud->addField([   // CustomHTML
@@ -125,7 +125,7 @@ trait PageTemplates
           'type'        => 'tinymce',
           'placeholder' => trans('backpack::pagemanager.content_placeholder'),
           'options'     => [
-            'plugins'  => 'image,imagetools,link,media,anchor,pagebreak ',
+            'plugins' => 'image,imagetools,link,media,anchor,pagebreak, autoresize, code, insertdatetime, preview, visualblocks, codesample',
           ],
         ]);
     }

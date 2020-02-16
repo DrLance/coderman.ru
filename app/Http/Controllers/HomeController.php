@@ -31,6 +31,13 @@ class HomeController extends Controller
                                                ->limit(15)
                                                ->get();
 
+        $articles = Page::select(['slug', 'excerpt', 'title', 'type', 'created_at'])
+                        ->whereType('articles')
+                        ->orderBy('created_at', 'DESC')
+                        ->limit(10)->get();
+
+        $this->data['articles'] = $articles;
+
         return view('welcome', $this->data);
     }
 

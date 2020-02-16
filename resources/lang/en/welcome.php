@@ -12,4 +12,5 @@ return [
   'economy_time'             => 'Time saving',
   'economy_time_desc'        => 'When searching for new orders, you don’t have to spend a lot of time',
   'last_projects'            => 'Last Projects',
+  'last_articles'            => 'Last Articles',
 ];
