@@ -37,9 +37,7 @@ Route::get('/sitemap', function() {
     }
 	}
 
-	$sitemap->add(route('lang',['locale' => 'ru']), \Carbon\Carbon::now(), '1.0','daily' );
-	$sitemap->add(route('lang', ['locale' => 'en']), \Carbon\Carbon::now(),'1.0','daily');
-
+	$sitemap->add(route('lang',['locale' => 'ru']), \Carbon\Carbon::now(), '1.0','daily' );	
 
 	// show your sitemap (options: 'xml' (default), 'html', 'txt', 'ror-rss', 'ror-rdf')
 	return $sitemap->render('xml');

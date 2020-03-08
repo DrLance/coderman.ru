@@ -125,7 +125,8 @@ trait PageTemplates
           'type'        => 'tinymce',
           'placeholder' => trans('backpack::pagemanager.content_placeholder'),
           'options'     => [
-            'plugins' => 'image,imagetools,link,media,anchor,pagebreak, autoresize, code, insertdatetime, preview, visualblocks, codesample',
+            'plugins' => 'image,imagetools,link,media,anchor,pagebreak, autoresize, code, insertdatetime, preview, 
+            visualblocks, codesample,advlist,lists,textcolor,contextmenu',
           ],
         ]);
     }

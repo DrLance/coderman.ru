@@ -20,7 +20,8 @@ module.exports = {
       heading: '#606676',
       dark: '#202e78',
       border: '#e1e8ee',
-      blue: '#03a9f4'
+      blue: '#03a9f4',
+
     },
     container: {
       'max-width': '1140px'

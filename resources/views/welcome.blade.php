@@ -1,7 +1,7 @@
 @extends('layouts.front')
 @section('content')
   <section class="container-main md:mx-auto flex-col px-4 md:px-0 mt-6 md:mt-12">
-    <h1 class="mb-5 w-25  text-center text-2xl sm:text-4xl text-heading leading-none">
+    <h1 class="mb-5 w-25  text-center text-xl sm:text-4xl text-heading leading-none">
       {{ trans('welcome.welcome')}}
     </h1>
     <div class="flex flex-col ">
@@ -22,7 +22,7 @@
     </div>
   </section>
   <section class="mt-12 md:mt-24 px-4 md:px-0 container-main md:mx-auto">
-    <h2 class="text-heading text-lg md:text-xl uppercase text-center font-bold">{{trans('welcome.advantages')}}</h2>
+    <h2 class="text-heading text-lg md:text-2xl uppercase text-center font-bold">{{trans('welcome.advantages')}}</h2>
     <div class="flex flex-col justify-center  md:flex-row mt-5 flex-nowrap">
       <div class="shadow border border-border rounded px-4 py-4 mr-2 md:w-1/4 flex items-center flex-col">
         <img class="py-4" src="{{asset('img/tax.png')}}" alt="">
@@ -46,18 +46,20 @@
       </div>
     </div>
   </section>
-  <section class="mt-12 md:mt-24 px-4 md:px-0 md:mb-20 ">
-    <h2 class="text-heading text-lg md:text-xl uppercase text-center font-bold">{{trans('welcome.last_articles')}}</h2>
-    <div class="flex flex-col justify-center mt-5 flex-wrap md:w-1/3 container-main md:mx-auto ">
+  <section class="mt-12 md:mt-24 px-4 md:px-0 md:mb-20 container-main md:mx-auto">
+    <h2 class="text-heading text-lg md:text-2xl uppercase text-center font-bold">{{trans('welcome.last_articles')}}</h2>
+    <div class="flex flex-col mt-5  ">
       @foreach($articles as $article)
-        <a class="shadow border border-border rounded px-1 py-1 flex items-center flex-row mt-1" href="{{config('app.url')}}/articles/{{$article->slug}}" target="_blank">
-          <p class="text-left text-content">{{$article->title}}</p>
+        <a class="shadow border border-border rounded py-2 mt-1 pl-4"
+           href="{{config('app.url')}}/articles/{{$article->slug}}" target="_blank">
+          <p class="text-left text-content text-xl ">{{$article->title}}</p>
+          <p class="text-left text-content ">{{$article->excerpt}}</p>
         </a>
         @endforeach
     </div>
   </section>
   <section class="mt-12 md:mt-24 px-4 md:px-0 md:mb-20 ">
-    <h2 class="text-heading text-lg md:text-xl uppercase text-center font-bold">{{trans('welcome.last_projects')}}</h2>
+    <h2 class="text-heading text-lg md:text-2xl uppercase text-center font-bold">{{trans('welcome.last_projects')}}</h2>
     <div class="flex flex-col justify-center mt-5 flex-wrap md:w-1/3 container-main md:mx-auto ">
       @foreach($projects as $project)
         <a href="{{$project->url}}" class="shadow border border-border rounded px-1 py-1 flex items-center flex-row mt-1" rel="nofollow" target="_blank">
