@@ -11,7 +11,6 @@
 |
 */
 
-use Backpack\PageManager\app\Models\Page;
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/test','HomeController@test')->name('test');
@@ -20,28 +19,7 @@ Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/stat', 'Pages\StatController@index')->name('stat');
 Route::get('/lang/{locale}', 'HomeController@lang')->name('lang');
 
-Route::get('/sitemap', function() {
-
-	// create new sitemap object
-	$sitemap = App::make('sitemap');
-
-	// add items to the sitemap (url, date, priority, freq)
-	$pages = Page::all();
-
-	foreach ($pages as $page) {
-	  if ($page->type) {
-	      $path = config('app.url') . '/' . $page->type . '/' . $page->slug;
-        $sitemap->add( $path, \Carbon\Carbon::now(), '1.0', 'daily');
-    } else {
-        $sitemap->add(route($page->slug), \Carbon\Carbon::now(), '1.0', 'daily');
-    }
-	}
-
-	$sitemap->add(route('lang',['locale' => 'ru']), \Carbon\Carbon::now(), '1.0','daily' );	
-
-	// show your sitemap (options: 'xml' (default), 'html', 'txt', 'ror-rss', 'ror-rdf')
-	return $sitemap->render('xml');
-});
+Route::get('/sitemap', 'HomeController@sitemap');
 
 /** CATCH-ALL ROUTE for Backpack/PageManager - needs to be at the end of your routes.php file  **/
 Route::get('{page}/{subs?}', ['uses' => 'PageController@index'])

@@ -60,6 +60,12 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
+    public function sitemap() {
+        $pages = Page::all();
+
+        return response()->view('components.sitemap', ['pages' => $pages])->header('Content-Type', 'text/xml');
+    }
+
 
     public function test(Request $request)
     {

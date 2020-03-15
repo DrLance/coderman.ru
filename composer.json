@@ -17,10 +17,9 @@
         "bugsnag/bugsnag-laravel": "^2.17",
         "fideloper/proxy": "^4.0",
         "laravel-notification-channels/telegram": "*",
-        "laravel/framework": "^6.0",
+        "laravel/framework": "^7.0",
         "laravel/slack-notification-channel": "^2.0",
         "laravel/tinker": "*",
-        "laravelium/sitemap": "^6.0",
         "symfony/dom-crawler": "^4.3"
     },
     "require-dev": {

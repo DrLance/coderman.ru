@@ -125,8 +125,13 @@ trait PageTemplates
           'type'        => 'tinymce',
           'placeholder' => trans('backpack::pagemanager.content_placeholder'),
           'options'     => [
-            'plugins' => 'image,imagetools,link,media,anchor,pagebreak, autoresize, code, insertdatetime, preview, 
-            visualblocks, codesample,advlist,lists,textcolor,contextmenu',
+            'toolbar_sticky' => true,
+            'file_picker_callback' => "elFinderBrowser",
+            'fontsize_formats' => '6px 7px 8px 9px 10px 11px 12px 13px 14px 16px 17px 18px 24px 36px 48px',
+            'toolbar' => 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons',
+            'plugins' => 'advlist,autolink,link,image,imagetools,lists,charmap,print,preview,hr,anchor,pagebreak,spellchecker,
+            searchreplace,wordcount,visualblocks,visualchars,code,fullscreen,insertdatetime,media,nonbreaking,table,
+            emoticons,template,paste,help,autoresize,legacyoutput',
           ],
         ]);
     }
