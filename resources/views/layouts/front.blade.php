@@ -71,28 +71,34 @@
   @yield('content')
 </main>
 <footer class="border-t border-border mx-2 sm:mx-0">
-  <div class="container-main mx-auto mt-10 pb-4">
+  <div class="container-main mx-auto mt-5 pb-4">
     <div class="flex flex-col items-center md:flex-row pb-5">
       <div class="md:w-1/3">
       </div>
       <div class="md:w-1/3 flex flex-col">
-        <a class="text-content text-13p mr-10 hover:text-blue" href="{{route('stat')}}">{{trans('menu.stat')}}</a>
-        <a class="text-content text-13p mr-10  hover:text-blue" href="{{route('monitoring')}}">{{trans('menu.monitoring')}}</a>
-        <a class="text-content text-13p mr-10 hover:text-blue" href="{{route('about')}}">{{trans('menu.about')}}</a>
+        <a class="text-content text-13p hover:text-blue" href="{{route('stat')}}">
+          {{trans('menu.stat')}}
+        </a>
+        <a class="text-content text-13p hover:text-blue mt-2" href="{{route('monitoring')}}">
+          {{trans('menu.monitoring')}}
+        </a>
+        <a class="text-content text-13p hover:text-blue mt-2" href="{{route('about')}}">
+          {{trans('menu.about')}}
+        </a>
       </div>
-      <div class="md:w-1/3">
+      <div class="md:w-1/3 flex flex-col items-end justify-center ">
         <a href="https://t.me/coderman_fl"
-           class="text-content text-sm flex flex-row items-center  md:justify-end  font-bold">
+           class="text-content text-sm flex flex-row items-center  md:justify-end  font-bold mb-2">
           <img class="pr-2 h-6 w-7" src="{{config('app.url')}}/img/telegram.svg" alt="Coderman_fl">
           @Coderman_fl</a>
+        <!-- Rating Mail.ru logo -->
+        <a href="https://top.mail.ru/jump?from=3154562">
+          <img src="https://top-fwz1.mail.ru/counter?id=3154562;t=479;l=1" style="border:0;" height="31" width="88"
+               alt="Top.Mail.Ru"/></a>
+        <!-- //Rating Mail.ru logo -->
       </div>
     </div>
     <div class="flex flex-row container mx-auto ">
-      <!-- Rating Mail.ru logo -->
-      <a href="https://top.mail.ru/jump?from=3154562">
-        <img src="https://top-fwz1.mail.ru/counter?id=3154562;t=479;l=1" style="border:0;" height="31" width="88"
-             alt="Top.Mail.Ru"/></a>
-      <!-- //Rating Mail.ru logo -->
       <div class="flex justify-center items-center w-full">
         <p class="text-heading text-xs">Copyright (c) 2019 Coderman.ru</p>
       </div>

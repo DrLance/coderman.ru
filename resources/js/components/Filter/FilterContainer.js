@@ -7,57 +7,68 @@ class FilterContainer extends React.Component {
 
   static contextType = FilterContext;
 
-  constructor( props ) {
-    super( props );
+  constructor (props) {
+    super(props);
 
     let localFilter = localStorage.getItem('coderman_filter');
 
-    if(localFilter) {
+    if (localFilter) {
       localFilter = JSON.parse(localFilter);
       this.state = {
         types: [],
         keywords: localFilter.keywords,
-        selectedType: localFilter.selectedType
+        selectedType: localFilter.selectedType,
+        selectedRegion: localFilter.selectedRegion
       };
     } else {
       this.state = {
         types: [],
         keywords: [],
-        selectedType: 0
+        selectedType: 0,
+        selectedRegion: 'en'
       };
     }
 
-    this.onChangeType = this.onChangeType.bind( this );
-    this.onAddKeyword = this.onAddKeyword.bind( this );
-    this.onRemoveKeyword = this.onRemoveKeyword.bind( this );
+    this.onChangeType = this.onChangeType.bind(this);
+    this.onAddKeyword = this.onAddKeyword.bind(this);
+    this.onRemoveKeyword = this.onRemoveKeyword.bind(this);
+    this.onChangeRegion = this.onChangeRegion.bind(this);
 
     this.refKeyword = React.createRef();
 
   }
 
-  componentDidMount() {
-    axios.post( 'api/getTypes' ).then( ( { data } ) => {
-      this.setState( { types: data } )
-    } )
+  componentDidMount () {
+    axios.post('api/getTypes').then(({ data }) => {
+      this.setState({ types: data })
+    })
   }
 
-  onChangeType( e, value ) {
-    this.setState({selectedType: e.target.value},() => {
-      if(this.props.onChangeFilter) {
+  onChangeType (e, value) {
+    this.setState({ selectedType: e.target.value }, () => {
+      if (this.props.onChangeFilter) {
         this.props.onChangeFilter(this.state);
       }
     });
   }
 
-  onAddKeyword( e ) {
-    if(e.key !== 'Enter') return;
+  onChangeRegion (e, value) {
+    this.setState({ selectedRegion: e.target.value }, () => {
+      if (this.props.onChangeFilter) {
+        this.props.onChangeFilter(this.state);
+      }
+    });
+  }
+
+  onAddKeyword (e) {
+    if (e.key !== 'Enter') return;
 
     let { keywords } = this.state;
-    keywords.push( e.target.value );
+    keywords.push(e.target.value);
 
-    if ( e.target.value ) {
-      this.setState( { keywords } ,() => {
-        if(this.props.onChangeFilter) {
+    if (e.target.value) {
+      this.setState({ keywords }, () => {
+        if (this.props.onChangeFilter) {
           this.props.onChangeFilter(this.state);
         }
       });
@@ -66,23 +77,23 @@ class FilterContainer extends React.Component {
 
   }
 
-  onRemoveKeyword( e ) {
+  onRemoveKeyword (e) {
     let { keywords } = this.state;
 
-    const currentValue = e.target.attributes.getNamedItem( 'data-keyword' ).value
+    const currentValue = e.target.attributes.getNamedItem('data-keyword').value
 
-    const newKeywords = keywords.filter( ( item ) => item !== currentValue && item !== '' );
+    const newKeywords = keywords.filter((item) => item !== currentValue && item !== '');
 
-    this.setState( { keywords: newKeywords }, () => {
-      if(this.props.onChangeFilter) {
+    this.setState({ keywords: newKeywords }, () => {
+      if (this.props.onChangeFilter) {
         this.props.onChangeFilter(this.state);
       }
-    } );
+    });
 
   }
 
-  render() {
-    const { types, keywords, selectedType } = this.state;
+  render () {
+    const { types, keywords, selectedType, selectedRegion } = this.state;
 
     return (
       <aside id="filter-side" className="md:w-3/12 order-0 md:order-1 flex flex-col md:flex md:flex-col">
@@ -91,33 +102,45 @@ class FilterContainer extends React.Component {
             <p className="uppercase p-2 text-center text-sm font-bold text-heading">фильтр</p>
             <label htmlFor="filter_type" className="flex flex-col text-heading">Фриланс биржа
               <select className="mb-5 mt-1 py-1 border-b border-border mb-3 text-lg" name="filter_type"
-                      onChange={ this.onChangeType } value={selectedType}>
+                      onChange={this.onChangeType} value={selectedType}>
                 <option value="0">Все</option>
-                { types.map( ( item, index ) => {
+                {types.map((item, index) => {
 
                   return (
-                    <option key={ item.id + '_opt' } value={ item.id } >{ item.name }</option>
+                    <option key={item.id + '_opt'} value={item.id}>{item.name}</option>
                   )
-                } ) }
+                })}
               </select>
-              <label className="mb-3 w-full">Ключевые слова
-                <div className="flex flex-wrap mb-2 w-full">
-                  { keywords.map( ( item, index ) => {
-                    return (
-                      <div ref={ this.refKeyword } key={ item + '_keyword' + index } className="pl-2 shadow mr-2 mt-1 text-blue">
-                        { item }
-                        <span className="pl-2 pr-2 text-heading hover:text-blue" data-keyword={ item }
-                              onClick={ this.onRemoveKeyword }>x</span>
-                      </div>
-                    )
-                  } ) }
-                </div>
-                <input name="keywords" className="focus:outline-none border-b border-border w-full" onKeyPress={ this.onAddKeyword }/>
-              </label>
+            </label>
+            <label className="mb-3 w-full text-heading" htmlFor="keywords">Ключевые слова
+              <div className="flex flex-wrap mb-2 w-full">
+                {keywords.map((item, index) => {
+                  return (
+                    <div ref={this.refKeyword} key={item + '_keyword' + index}
+                         className="pl-2 shadow mr-2 mt-1 text-blue">
+                      {item}
+                      <span className="pl-2 pr-2 text-heading hover:text-blue" data-keyword={item}
+                            onClick={this.onRemoveKeyword}>x</span>
+                    </div>
+                  )
+                })}
+              </div>
+              <input name="keywords" className="focus:outline-none border-b border-border w-full"
+                     onKeyPress={this.onAddKeyword}/>
+            </label>
+            <label className="mt-3 w-full text-heading flex flex-col" htmlFor="regions">Регион
+              <select name="regions"
+                      className="mb-5 mt-1 py-1 border-b border-border mb-3 text-lg pl-0"
+                      value={selectedRegion}
+                      onChange={this.onChangeRegion}
+              >
+                <option value="ru">Ru</option>
+                <option value="en">En</option>
+              </select>
             </label>
           </div>
         </div>
-        <StatContainer />
+        <StatContainer/>
       </aside>
     )
   }
