@@ -48,7 +48,7 @@ class MonitoringController extends Controller
             }
 
             if (isset($filter['selectedType']) && $filter['selectedType'] != 0) {
-                $parsedData->whereTypeId($filter['selectedType']);
+                $parsedData->where('type_id',$filter['selectedType']);
             }
 
             if (isset($filter['selectedRegion'])) {
@@ -57,7 +57,7 @@ class MonitoringController extends Controller
         }
 
         $parsedData->whereHas('type',function ($q) use($locale) {
-            $q->whereLang($locale);
+            $q->where('lang',$locale);
         });
 
         $results = $parsedData
