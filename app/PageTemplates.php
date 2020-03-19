@@ -54,10 +54,15 @@ trait PageTemplates
         $this->crud->addField([
           'name'        => 'content',
           'label'       => trans('backpack::pagemanager.content'),
-          'type'        => 'tinymce',
+          'type'        => 'wysiwyg',
           'placeholder' => trans('backpack::pagemanager.content_placeholder'),
           'options'     => [
-            'plugins' => 'image,imagetools,link,media,anchor,pagebreak ',
+            'extraPlugins' => 'autogrow, panelbutton, preview, image2, font, ajax, about,balloonpanel,codesnippet,
+            panelbutton,uploadfile,placeholder
+            ',
+              'autoGrow_onStartup' => true,
+              'codeSnippet_theme' => 'github',
+              'toolbarLocation' => 'bottom'
           ],
         ]);
     }
@@ -68,6 +73,11 @@ trait PageTemplates
           'name'        => 'content',
           'label'       => trans('backpack::pagemanager.content'),
           'type'        => 'wysiwyg',
+          'options'     => [
+            'extraPlugins' => 'autogrow',
+            'autoGrow_onStartup' => true
+
+          ],
           'placeholder' => trans('backpack::pagemanager.content_placeholder'),
         ]);
     }
@@ -119,6 +129,7 @@ trait PageTemplates
           'type'  => 'custom_html',
           'value' => '<br><h2>' . trans('backpack::pagemanager.content') . '</h2><hr>',
         ]);
+
         $this->crud->addField([
           'name'        => 'content',
           'label'       => trans('backpack::pagemanager.content'),

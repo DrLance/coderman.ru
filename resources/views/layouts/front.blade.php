@@ -139,5 +139,6 @@
   </noscript>
   <!-- //Rating Mail.ru counter -->
 @endif
+@yield('custom_footer')
 </body>
 </html>

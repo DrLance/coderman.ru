@@ -9,7 +9,7 @@ class PageController extends Controller
 {
     public function index($slug, $subs = null)
     {
-        $page = Page::whereSlug($slug)->whereNotIn('type', ['articles', 'news'])->first();
+        $page = Page::where('slug',$slug)->where('type', null)->first();
 
         $lastArticles = [];
 
