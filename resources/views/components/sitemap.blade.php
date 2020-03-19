@@ -4,7 +4,7 @@
       @if($page->type)
         <loc>{{ config('app.url') . '/' . $page->type . '/' . $page->slug }}</loc>
       @else
-        <loc>{{ route($page->slug) }}</loc>
+        <loc>{{ url($page->slug) }}</loc>
       @endif
       <lastmod>{{ $page->updated_at->tz('GMT')->toAtomString() }}</lastmod>
       <changefreq>monthly</changefreq>
