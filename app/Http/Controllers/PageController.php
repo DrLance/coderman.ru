@@ -9,18 +9,23 @@ class PageController extends Controller
 {
     public function index($slug, $subs = null)
     {
-        $page = Page::where('slug',$slug)->where('type', null)->first();
+        $page = Page::where('slug', $slug)->where('type', null)->first();
 
         $lastArticles = [];
 
-        if ($subs) {
-            $page = Page::whereType($slug)->whereSlug($subs)->first();
+        var_dump($subs);
 
-            $lastArticles = Page::select(['slug', 'excerpt', 'title', 'type', 'created_at'])
-                                ->whereType('articles')
-                                ->where('id', '!=', $page->id)
-                                ->orderBy('created_at', 'DESC')
-                                ->limit(10)->get();
+        if ($subs) {
+            $pageType = Page::where('type', $slug)->where('slug', $subs)->first();
+
+            if ($pageType) {
+
+                $lastArticles = Page::select(['slug', 'excerpt', 'title', 'type', 'created_at'])
+                                    ->whereType('articles')
+                                    ->where('id', '!=', $pageType->id)
+                                    ->orderBy('created_at', 'DESC')
+                                    ->limit(10)->get();
+            }
         }
 
         if ( ! $page) {

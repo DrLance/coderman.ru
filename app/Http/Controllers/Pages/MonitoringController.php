@@ -7,6 +7,7 @@ use App\Models\ParsedData;
 use App\Http\Controllers\Controller;
 use Backpack\PageManager\app\Models\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class MonitoringController extends Controller
 {
@@ -28,6 +29,8 @@ class MonitoringController extends Controller
 
     public function getData(Request $request)
     {
+        $t1 = microtime(true);
+
         $locale = 'ru';
 
         $parsedData = ParsedData::query()->with("type");
@@ -65,6 +68,10 @@ class MonitoringController extends Controller
           ->orderBy('id', 'DESC')
           ->limit($limit)
           ->get();
+
+        $t2 = microtime(true);
+
+        Log::debug('end ' . ($t2 - $t1));
 
         return response()->json($results);
     }

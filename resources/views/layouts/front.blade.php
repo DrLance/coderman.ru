@@ -75,15 +75,18 @@
     <div class="flex flex-col items-center md:flex-row pb-5">
       <div class="md:w-1/3">
       </div>
-      <div class="md:w-1/3 flex flex-col">
-        <a class="text-content text-13p hover:text-blue" href="{{route('stat')}}">
+      <div class="md:w-1/3 flex flex-row items-center flex-wrap">
+        <a class="text-content text-13p hover:text-blue p-2" href="{{route('stat')}}">
           {{trans('menu.stat')}}
         </a>
-        <a class="text-content text-13p hover:text-blue mt-2" href="{{route('monitoring')}}">
+        <a class="text-content text-13p hover:text-blue p-2" href="{{route('monitoring')}}">
           {{trans('menu.monitoring')}}
         </a>
-        <a class="text-content text-13p hover:text-blue mt-2" href="{{route('about')}}">
+        <a class="text-content text-13p hover:text-blue p-2" href="{{route('about')}}">
           {{trans('menu.about')}}
+        </a>
+        <a class="text-content text-13p hover:text-blue p-2" href="{{url('cookie')}}">
+          Правила использования cookie
         </a>
       </div>
       <div class="md:w-1/3 flex flex-col items-end justify-center ">
