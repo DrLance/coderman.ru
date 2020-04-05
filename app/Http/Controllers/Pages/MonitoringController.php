@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Pages;
 use App\Models\ParsedData;
 use App\Http\Controllers\Controller;
 use Backpack\PageManager\app\Models\Page;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -30,6 +31,8 @@ class MonitoringController extends Controller
     public function getData(Request $request)
     {
         $t1 = microtime(true);
+
+        $weekAgo = Carbon::now()->subDays(30);
 
         $locale = 'ru';
 
@@ -62,6 +65,8 @@ class MonitoringController extends Controller
         $parsedData->whereHas('type',function ($q) use($locale) {
             $q->where('lang',$locale);
         });
+
+        $parsedData->where('created_at', '>', $weekAgo);
 
         $results = $parsedData
           ->orderBy('created_at', 'DESC')
